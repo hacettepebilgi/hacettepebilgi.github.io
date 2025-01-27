@@ -4,48 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kampüs Olanakları - Hacettepe Üniversitesi</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Hacettepe Üniversitesi kampüslerinde sunulan eğitim, araştırma, sosyal ve kültürel olanaklar hakkında detaylı bilgiler.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
         .bg-pattern {
-            background-color: #f8f8f8;
-            background-image: linear-gradient(#ff000015 2px, transparent 2px),
-                              linear-gradient(to right, #ff000015 2px, transparent 2px);
-            background-size: 40px 40px;
+            background-color: #ffffff;
+            background-image: radial-gradient(#ff000008 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .card-hover {
+            transition: all 0.2s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
     </style>
 </head>
 <body class="bg-pattern min-h-screen">
     <div class="min-h-screen flex flex-col">
-        <header class="bg-red-700 text-white py-6">
+        <!-- Navbar -->
+        <nav class="bg-white/80 backdrop-blur-sm border-b border-red-100 sticky top-0 z-50">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl font-bold text-center">Kampüs Olanakları</h1>
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <a href="../index.html" class="font-medium text-gray-800">Hacettepe Bilgilendirme</a>
+                    </div>
+                </div>
             </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 py-8">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl font-bold text-gray-900 text-center">Kampüs Olanakları</h1>
+                <p class="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
+                    Hacettepe Üniversitesi'nin Beytepe ve Sıhhiye kampüslerinde sunulan eğitim, araştırma, sosyal ve kültürel olanaklar hakkında detaylı bilgiler.
+                            </p>
+                            </div>
         </header>
 
         <main class="flex-grow container mx-auto px-4 py-8">
-            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 class="text-2xl font-bold text-red-800 mb-4">Hacettepe Üniversitesi Kampüs Olanakları</h2>
-                <p class="text-gray-700 mb-4">
-                    Hacettepe Üniversitesi, öğrencilerine ve personeline modern ve kapsamlı kampüs olanakları sunmaktadır. 
-                    Kampüslerde eğitim, araştırma, sosyal ve kültürel faaliyetler için çeşitli imkanlar bulunmaktadır.
-                </p>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-md p-6 mt-6">
-                <p class="text-gray-700 text-center">
-                    Kampüs hakkında tüm bilgiler için 
-                    <a href="https://www.hacettepe.edu.tr/yerleskedeyasam/" target="_blank" class="text-red-600 hover:underline font-bold">
-                        https://www.hacettepe.edu.tr/yerleskedeyasam/
-                    </a> 
-                    sayfasını ziyaret edebilirsiniz.
-                </p>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Yerleşkede Yaşam</h2>
+                            <p class="text-gray-600 mb-4">
+                                Hacettepe Üniversitesi'nin tüm kampüslerinde sunulan olanaklar, sosyal ve kültürel etkinlikler, spor faaliyetleri ve öğrenci kulüpleri hakkında detaylı bilgilere ulaşabilirsiniz.
+                            </p>
+                            <a href="https://www.hacettepe.edu.tr/yerleskedeyasam/" target="_blank" class="flex items-center text-gray-600 hover:text-red-600 transition-colors group">
+                                    <svg class="w-4 h-4 mr-2 transform transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                Yerleşkede Yaşam Sayfası
+                                </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
 
-        <footer class="bg-red-700 text-white py-4 mt-8">
-            <div class="container mx-auto px-4 text-center">
-                <p>&copy; 2024 <a href='https://akiner.net'>Akıner Kısa</a>. <a href='../hakkinda.html'>Site Hakkında</a></p>
-                <a href="../index.html" class="text-white hover:text-gray-200 mt-2 inline-block">Ana Sayfaya Dön</a>
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-gray-600 text-sm">Hacettepe Bilgilendirme</span>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="https://akiner.net" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Akıner Kısa</a>
+                        <a href="../hakkinda.html" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Site Hakkında</a>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>

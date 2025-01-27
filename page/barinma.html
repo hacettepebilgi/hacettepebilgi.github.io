@@ -3,50 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barınma Olanakları - Hacettepe Üniversitesi</title>
+    <meta name="description" content="Hacettepe Üniversitesi öğrencileri için Beytepe ve Sıhhiye kampüslerindeki barınma olanakları, yurt ve öğrenci evleri bilgileri.">
+    <meta name="keywords" content="Hacettepe Üniversitesi, barınma, yurt, öğrenci evi, KYK, konukevi">
+    <meta name="robots" content="index, follow">
+    <title>Barınma - Hacettepe Üniversitesi</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
         .bg-pattern {
-            background-color: #f8f8f8;
-            background-image: linear-gradient(#ff000015 2px, transparent 2px),
-                              linear-gradient(to right, #ff000015 2px, transparent 2px);
-            background-size: 40px 40px;
+            background-color: #ffffff;
+            background-image: radial-gradient(#ff000008 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .card-hover {
+            transition: all 0.2s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
     </style>
 </head>
 <body class="bg-pattern min-h-screen">
     <div id="app" class="min-h-screen flex flex-col">
-        <header class="bg-red-700 text-white py-6">
+        <!-- Navbar -->
+        <nav class="bg-white/80 backdrop-blur-sm border-b border-red-100 sticky top-0 z-50">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl font-bold text-center">Barınma Olanakları</h1>
+                <div class="flex justify-between items-center h-16">
+                    <a href="../index.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="font-medium text-gray-800">Hacettepe Bilgilendirme</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 py-8">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl font-bold text-gray-900 text-center">Barınma Olanakları</h1>
+                <p class="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
+                    Hacettepe Üniversitesi'nin Beytepe ve Sıhhiye kampüslerinde sunduğu tüm barınma seçenekleri, yurt imkanları ve başvuru süreçleri hakkında detaylı bilgiler.
+                </p>
             </div>
         </header>
-        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-6 mx-auto max-w-4xl">
-            <p class="font-bold">Önemli Notlar:</p>
-            <ul class="list-disc list-inside mt-2">
-                <li>Sıhhiye İçin Bilgilendirme: Sıhhiye Öğrenci Evleri, Konukevi-1, Konukevi-2 ve Asistan bloklarında boş öğrenci kontenjanı olmadığından tercihlerinizde görünmeyecektir. İkinci açılacak başvuru dönemi içinde boş kontenjan olması halinde yukarıda belirtilen barınma birimlerine tercih açılabilir.</li>
-            </ul>
-        </div>
+
         <main class="flex-grow container mx-auto px-4 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div v-for="option in housingOptions" :key="option.title" 
-                     class="bg-white rounded-lg shadow-md p-6 border-l-4 border-red-600">
-                    <h2 class="text-2xl font-bold text-red-800 mb-4">{{ option.title }}</h2>
-                    <p class="text-gray-700 mb-4">{{ option.description }}</p>
-                    <ul class="list-none text-gray-600">
-                        <li v-for="feature in option.features" :key="feature.text" class="mb-2">
-                            <a :href="feature.link" class="text-red-600 hover:underline">{{ feature.text }}</a>
-                        </li>
-                    </ul>
+                     class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg v-if="option.title.includes('Beytepe')" class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 21H21M6 18V9.99998M6 10L12 5L18 10M18 18V10M10 18V14C10 13.4477 10.4477 13 11 13H13C13.5523 13 14 13.4477 14 14V18" 
+                                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg v-else-if="option.title.includes('Sıhhiye')" class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M19 10H5M21 6H3M21 14H3M19 18H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg v-else-if="option.title.includes('KYK')" class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H15M9 21V17C9 15.8954 9.89543 15 11 15H13C14.1046 15 15 15.8954 15 17V21M9 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg v-else class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 21H21M6 18V9.99998M6 10L12 5L18 10M18 18V10M10 18V14C10 13.4477 10.4477 13 11 13H13C13.5523 13 14 13.4477 14 14V18" 
+                                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-2">{{ option.title }}</h2>
+                            <p class="text-gray-600 mb-4">{{ option.description }}</p>
+                            <ul class="space-y-3">
+                                <li v-for="feature in option.features" :key="feature.text">
+                                    <a :href="feature.link" target="_blank" 
+                                       class="flex items-center text-gray-600 hover:text-red-600 transition-colors group">
+                                        <svg class="w-4 h-4 mr-2 transform transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        {{ feature.text }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
 
-        <footer class="bg-red-700 text-white py-4 mt-8">
-            <div class="container mx-auto px-4 text-center">
-                <p>&copy; 2024 <a href='https://akiner.net'>Akıner Kısa</a>. <a href='../hakkinda.html'>Site Hakkında</a></p>
-                <a href="../index.html" class="text-white hover:text-gray-200 mt-2 inline-block">Ana Sayfaya Dön</a>
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-gray-600 text-sm">Hacettepe Bilgilendirme</span>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="https://akiner.net" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Akıner Kısa</a>
+                        <a href="../hakkinda.html" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Site Hakkında</a>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>
@@ -75,14 +148,14 @@
                             title: 'Sıhhiye Yurt, Öğrenci ve Konuk Evleri',
                             description: 'Üniversitemizin sıhhiye kampüsünde sunduğu konaklama seçenekleri.',
                             features: [
-                            { text: 'Yurtlar Hakkında Bilgi', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=16&title=beytepe-ogrenci-yurtlari' },
-                            { text: 'Öğrenci Evleri Hakkında Bilgi - Sayfası Yok', link: '#' },
-                            { text: 'Konuk Evleri Hakkında Bilgi', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=1043&title=konukevleri'},
-                            { text: 'Güncel Ücretler', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=15&title=barinma-birimleri-ucretleri' },
-                            { text: 'Barınma Birimleri Yönergesi', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=12&title=barinma-birimleri-yonergesi' },
-                            { text: 'Barınma Birimleri Kayıt Evrak Listesi', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=58422&title=2024-2025-yili-barinma-birimleri-kayit-evraklari'},
-                            { text: 'Başvuru Sayfası', link: 'https://yurt2.hacettepe.edu.tr/yurtx/home.faces'},
-                            { text: 'Başvuru Önemli Bilgilendirme', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=58423&title=online-basvuru-barinma-birimleri-2024-2025-egitim-ogretim-donemi'}
+                                { text: 'Yurtlar Hakkında Bilgi', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=16&title=beytepe-ogrenci-yurtlari' },
+                                { text: 'Öğrenci Evleri Hakkında Bilgi - Sayfası Yok', link: '#' },
+                                { text: 'Konuk Evleri Hakkında Bilgi', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=1043&title=konukevleri'},
+                                { text: 'Güncel Ücretler', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=15&title=barinma-birimleri-ucretleri' },
+                                { text: 'Barınma Birimleri Yönergesi', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=12&title=barinma-birimleri-yonergesi' },
+                                { text: 'Barınma Birimleri Kayıt Evrak Listesi', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=58422&title=2024-2025-yili-barinma-birimleri-kayit-evraklari'},
+                                { text: 'Başvuru Sayfası', link: 'https://yurt2.hacettepe.edu.tr/yurtx/home.faces'},
+                                { text: 'Başvuru Önemli Bilgilendirme', link: 'https://sksdb.hacettepe.edu.tr/bidbnew/post.php?id=58423&title=online-basvuru-barinma-birimleri-2024-2025-egitim-ogretim-donemi'}
                             ]
                         },
                         {
@@ -98,7 +171,7 @@
                             description: 'Beytepe Kampüsündeki özel yurt seçenekleri.',
                             features: [
                                 { text: 'Atatepe Yurdu', link: 'https://www.atatepe.com.tr/' },
-                                { text: 'Parlar Kız Öğrenci Yurdu', link: 'https://parlarogrencievi.org.tr/' },
+                                { text: 'Parlar Kız Öğrenci Yurdu', link: 'https://parlarogrencievi.org.tr/' }
                             ]
                         }
                     ]

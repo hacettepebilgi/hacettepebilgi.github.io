@@ -4,134 +4,361 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Çevredeki KYK'lar - Hacettepe Üniversitesi</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+    <meta name="description" content="Hacettepe Üniversitesi Beytepe Kampüsü çevresindeki KYK yurtları, konumları ve detaylı bilgileri.">
+    <meta name="robots" content="index, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
         .bg-pattern {
-            background-color: #f8f8f8;
-            background-image: linear-gradient(#ff000015 2px, transparent 2px),
-                              linear-gradient(to right, #ff000015 2px, transparent 2px);
-            background-size: 40px 40px;
+            background-color: #ffffff;
+            background-image: radial-gradient(#ff000008 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .card-hover {
+            transition: all 0.2s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
     </style>
 </head>
 <body class="bg-pattern min-h-screen">
     <div class="min-h-screen flex flex-col">
-        <header class="bg-red-700 text-white py-6">
+        <!-- Navbar -->
+        <nav class="bg-white/80 backdrop-blur-sm border-b border-red-100 sticky top-0 z-50">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl font-bold text-center">Çevredeki KYK'lar</h1>
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <a href="../index.html" class="font-medium text-gray-800">Hacettepe Bilgilendirme</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 py-8">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl font-bold text-gray-900 text-center">Çevredeki KYK'lar</h1>
+                <p class="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
+                    Hacettepe Üniversitesi Beytepe Kampüsü çevresindeki KYK yurtları, konumları ve detaylı bilgileri.
+                </p>
             </div>
         </header>
-        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-6 mx-auto max-w-4xl">
-            <p class="font-bold">Önemli Notlar:</p>
-            <ul class="list-disc list-inside mt-2">
-                <li>Not 1: Beytepe kampüsü içinde sayılan Emine Şerife Hanım Kız KYK Öğrenci Yurdu ve beytepe kampüsü içinde olan Beytepe KYK Kız KYK Öğrenci Yurdu listeye dahil edilmemiştir. Onlar hakkındaki bilgilere <a href="https://hacettepe.biz/barinma.html" class="text-blue-500 hover:underline">barınma</a> sayfasından ulaşabilirsiniz.</li>
-                <li>Not 2: Belirtilen uzaklık ölçümleri çizgi ölçüm değildir. Ortalama yol uzunluklarıdır.</li>
-                <li>Not 3: Mobilden giriyorsanız kampüse uzaklık linkinde maps uygulaması açıldığında yol gözükmeyebilir. Haritada gör yazısınıza basılı tutup gizli sekmede aç diyerek sorunu çözebilirsiniz.</li>
-            </ul>
-        </div>
-        <main class="flex-grow container mx-auto px-4 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Erkek KYK'lar -->
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-2xl font-bold text-red-800 mb-4">Erkek KYK'lar</h2>
-                    <ul class="space-y-4">
-                        <li>
-                            <h3 class="text-lg font-semibold">GSB KYGM Tahsin Banguoğlu Öğrenci Yurdu</h3>
-                            <p class="text-gray-600">Adres: <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d348a40e6d283d:0x3541cf56559b2a7b" class="text-blue-500 hover:underline" target="_blank">Google Maps</a></p>
-                            <p class="text-gray-600">
-                                Kampüse uzaklık: 10KM
-                                <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/GSB+KYGM+Tahsin+Banguo%C4%9Flu+%C3%96%C4%9Frenci+Yurdu,+S%C3%B6%C4%9F%C3%BCt%C3%B6z%C3%BC+Mahallesi+2180.+Caddesi,+Eski,+Lizbon+Caddesi+No:+15,+06520+%C3%87ankaya%2FAnkara" class="text-blue-500 hover:underline" target="_blank">Haritada gör</a>
-                            </p>
-                            <p class="text-gray-600">Kyk Tipi: Tip 1 - Odalar 6-8 Kişilik</p>
-                        </li>
-                        <li>
-                            <h3 class="text-lg font-semibold">GSB / KYK Osman Tan Erkek Öğrenci Yurdu</h3>
-                            <p class="text-gray-600">Adres: <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34f6b4c98765f:0x39e05813a6250683" class="text-blue-500 hover:underline" target="_blank">Google Maps</a></p>
-                            <p class="text-gray-600">
-                                Kampüse uzaklık: 14KM
-                                <a href="https://www.google.com/maps/dir/%C3%9Cniversiteler,+Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC,+%C3%87ankaya%2FAnkara/Balgat,+GSB+%2F+KYK+Osman+Tan+Erkek+%C3%96%C4%9Frenci+Yurdu,+Av.+%C3%96zdemir+%C3%96zok+Sk.+No:3,+06520+%C3%87ankaya%2FAnkara" class="text-blue-500 hover:underline" target="_blank">Haritada gör</a>
-                            </p>
-                            <p class="text-gray-600">Kyk Tipi: Tip 6 - Odalar 6 Kişilik</p>
-                        </li>
-                        <li>
-                            <h3 class="text-lg font-semibold">KYK Yunus Emre Erkek Öğrenci Yurdu</h3>
-                            <p class="text-gray-600">Adres: <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34ef4fca95507:0x2995f122f23ddeb6" class="text-blue-500 hover:underline" target="_blank">Google Maps</a></p>
-                            <p class="text-gray-600">
-                                Kampüse uzaklık: 19KM
-                                <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Anafartalar,+Y%C3%BCksek+%C3%96%C4%9Frenim+Kredi+Ve+Yurtlar+Kurumu+Yunus+Emre+Erkek+%C3%96%C4%9Frenci+Yurdu,+%C3%87ank%C4%B1r%C4%B1+Cd.+No:33,+06050+Alt%C4%B1nda%C4%9F%2FAnkara" class="text-blue-500 hover:underline" target="_blank">Haritada gör</a>
-                            </p>
-                            <p class="text-gray-600">Kyk Tipi: Bilgi yok</p>
-                        </li>
-                        <li>
-                            <h3 class="text-lg font-semibold">KYK Hüseyin Gazi Erkek Öğrenci Yurdu</h3>
-                            <p class="text-gray-600">Adres: <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34e88ba10239d:0x3bea34f3e9f3ab69" class="text-blue-500 hover:underline" target="_blank">Google Maps</a></p>
-                            <p class="text-gray-600">
-                                Kampüse uzaklık: 19KM
-                                <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Z%C3%BCbeyde+Han%C4%B1m,+KYK+H%C3%BCseyin+Gazi+Erkek+%C3%96%C4%9Frenci+Yurdu,+643.+Sk.+No:2%2FA,+06070+Alt%C4%B1nda%C4%9F%2FAnkara" class="text-blue-500 hover:underline" target="_blank">Haritada gör</a>
-                            </p>
-                            <p class="text-gray-600">Kyk Tipi: Tip 6 - Odalar 6 Kişilik</p>
-                        </li>
-                        <li>
-                            <h3 class="text-lg font-semibold">Gölbaşı KYK Erkek Yurdu</h3>
-                            <p class="text-gray-600">Adres: <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d3422f0e9a04fd:0x1e3c69058be433c2" class="text-blue-500 hover:underline" target="_blank">Google Maps</a></p>
-                            <p class="text-gray-600">
-                                Kampüse uzaklık: 24KM
-                                <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Bah%C3%A7elievler,+G%C3%B6lba%C5%9F%C4%B1+KYK+Erkek+Yurdu,+06830+G%C3%B6lba%C5%9F%C4%B1%2FAnkara" class="text-blue-500 hover:underline" target="_blank">Haritada gör</a>
-                            </p>
-                            <p class="text-gray-600">Kyk Tipi: Tip bilinmiyor - Odalar 4-6 Kişilik</p>
-                        </li>
-                    </ul>
-                </div>
 
-                <!-- Kız KYK'lar -->
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-2xl font-bold text-red-800 mb-4">Kız KYK'lar</h2>
-                    <ul class="space-y-4">
-                        <li>
-                            <h3 class="text-lg font-semibold">Nene Hatun Kız Öğrenci Yurdu - 2024 - 2025 İçin Kapalı Durumda</h3>
-                            <p class="text-gray-600">Adres: <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34f301f1cc1e1:0x975ce6ddf95ed711" class="text-blue-500 hover:underline" target="_blank">Google Maps</a></p>
-                            <p class="text-gray-600">
-                                Kampüse uzaklık: 14KM
-                                <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Nene+Hatun+K%C4%B1z+%C3%96%C4%9Frenci+Yurdu,+Bah%C3%A7elievler+8.+Cad.%2F15.+Sok.+No:46,+06490+%C3%87ankaya%2FAnkara" class="text-blue-500 hover:underline" target="_blank">Haritada gör</a>
-                            </p>
-                            <p class="text-gray-600">Kyk Tipi: Bilgi yok 2024 - 2025 için kapalı durumda.</p>
-                        </li>
-                        <li>
-                            <h3 class="text-lg font-semibold">KYK Beştepe Kız Öğrenci Yurdu</h3>
-                            <p class="text-gray-600">Adres: <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34f2e60faa05b:0x651b7bde40e6abe3" class="text-blue-500 hover:underline" target="_blank">Google Maps</a></p>
-                            <p class="text-gray-600">
-                                Kampüse uzaklık: 15KM
-                                <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Be%C5%9Ftepe,+KYK+Be%C5%9Ftepe+K%C4%B1z+%C3%96%C4%9Frenci+Yurdu,+Meri%C3%A7+Sk.+No:11,+06560+Yenimahalle%2FAnkara" class="text-blue-500 hover:underline" target="_blank">Haritada gör</a>
-                            </p>
-                            <p class="text-gray-600">Kyk Tipi: Bilgi yok</p>
-                        </li>
-                        <li>
-                            <h3 class="text-lg font-semibold">Saime Kadın KYK Kız Öğrenci Yurdu</h3>
-                            <p class="text-gray-600">Adres: <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34f2c6b3a6aa5:0x8350305d22876a1f" class="text-blue-500 hover:underline" target="_blank">Google Maps</a></p>
-                            <p class="text-gray-600">
-                                Kampüse uzaklık: 22KM
-                                <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Alt%C4%B1nevler,+Saime+Kad%C4%B1n+KYK+K%C4%B1z+%C3%96%C4%9Frenci+Yurdu,+06350+Mamak%2FAnkara" class="text-blue-500 hover:underline" target="_blank">Haritada gör</a>
-                            </p>
-                            <p class="text-gray-600">Kyk Tipi: Tip bilinmiyor - Odalar 4 Kişilik</p>
-                        </li>
-                        <li>
-                            <h3 class="text-lg font-semibold">KYK Milli İrade Kız Öğrenci Yurdu</h3>
-                            <p class="text-gray-600">Adres: <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d341f44855550f:0x94949c9fce8de83d" class="text-blue-500 hover:underline" target="_blank">Google Maps</a></p>
-                            <p class="text-gray-600">
-                                Kampüse uzaklık: 24KM
-                                <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Bah%C3%A7elievler,+KYK+Milli+%C4%B0rade+K%C4%B1z+%C3%96%C4%9Frenci+Yurdu,+D750,+06830+G%C3%B6lba%C5%9F%C4%B1%2FAnkara" class="text-blue-500 hover:underline" target="_blank">Haritada gör</a>
-                            </p>
-                            <p class="text-gray-600">Kyk Tipi: Tip bilinmiyor - Odalar 4 Kişilik</p>
-                        </li>
-                    </ul>
+        <div class="container mx-auto px-4 mt-8">
+            <div class="bg-white rounded-xl border border-red-100 p-6">
+                <div class="flex items-start space-x-3">
+                    <svg class="w-6 h-6 text-red-600 mt-0.5" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 9V11M12 15H12.01M5.07183 19H18.9282C20.4678 19 21.4301 17.3333 20.6603 16L13.7321 4C12.9623 2.66667 11.0377 2.66667 10.2679 4L3.33975 16C2.56995 17.3333 3.53217 19 5.07183 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div>
+                        <h2 class="text-lg font-semibold text-gray-900 mb-2">Önemli Notlar</h2>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>Beytepe kampüsü içinde sayılan Emine Şerife Hanım Kız KYK Öğrenci Yurdu ve beytepe kampüsü içinde olan Beytepe KYK Kız KYK Öğrenci Yurdu listeye dahil edilmemiştir. Onlar hakkındaki bilgilere <a href="https://hacettepe.biz/barinma.html" class="text-red-600 hover:text-red-700">barınma</a> sayfasından ulaşabilirsiniz.</li>
+                            <li>Belirtilen uzaklık ölçümleri çizgi ölçüm değildir. Ortalama yol uzunluklarıdır.</li>
+                            <li>Mobilden giriyorsanız kampüse uzaklık linkinde maps uygulaması açıldığında yol gözükmeyebilir. Haritada gör yazısınıza basılı tutup gizli sekmede aç diyerek sorunu çözebilirsiniz.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main class="flex-grow container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H15M9 21V17C9 15.8954 9.89543 15 11 15H13C14.1046 15 15 15.8954 15 17V21M9 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Erkek KYK'lar</h2>
+                            <ul class="space-y-6">
+                                <li class="group">
+                                    <h3 class="text-lg font-semibold text-gray-900">GSB KYGM Tahsin Banguoğlu Öğrenci Yurdu</h3>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d348a40e6d283d:0x3541cf56559b2a7b" class="text-red-600 hover:text-red-700" target="_blank">Google Maps</a>
+                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Kampüse uzaklık: 10KM
+                                            <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/GSB+KYGM+Tahsin+Banguo%C4%9Flu+%C3%96%C4%9Frenci+Yurdu,+S%C3%B6%C4%9F%C3%BCt%C3%B6z%C3%BC+Mahallesi+2180.+Caddesi,+Eski,+Lizbon+Caddesi+No:+15,+06520+%C3%87ankaya%2FAnkara" class="ml-2 text-red-600 hover:text-red-700 group-hover:translate-x-1 transition-transform" target="_blank">Haritada gör</a>
+                    </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0l-1-7M5 21h-2m2 0l1-7m0 0l1-7h8l1 7m-10 0h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Kyk Tipi: Tip 1 - Odalar 6-8 Kişilik
+                </div>
+                                    </div>
+                                </li>
+                                <li class="group">
+                                    <h3 class="text-lg font-semibold text-gray-900">GSB / KYK Osman Tan Erkek Öğrenci Yurdu</h3>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34f6b4c98765f:0x39e05813a6250683" class="text-red-600 hover:text-red-700" target="_blank">Google Maps</a>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                            Kampüse uzaklık: 14KM
+                                            <a href="https://www.google.com/maps/dir/%C3%9Cniversiteler,+Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC,+%C3%87ankaya%2FAnkara/Balgat,+GSB+%2F+KYK+Osman+Tan+Erkek+%C3%96%C4%9Frenci+Yurdu,+Av.+%C3%96zdemir+%C3%96zok+Sk.+No:3,+06520+%C3%87ankaya%2FAnkara" class="ml-2 text-red-600 hover:text-red-700 group-hover:translate-x-1 transition-transform" target="_blank">Haritada gör</a>
+                                </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0l-1-7M5 21h-2m2 0l1-7m0 0l1-7h8l1 7m-10 0h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            Kyk Tipi: Tip 6 - Odalar 6 Kişilik
+                                </div>
+                                    </div>
+                                </li>
+                                <li class="group">
+                                    <h3 class="text-lg font-semibold text-gray-900">KYK Yunus Emre Erkek Öğrenci Yurdu</h3>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34ef4fca95507:0x2995f122f23ddeb6" class="text-red-600 hover:text-red-700" target="_blank">Google Maps</a>
+                                </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Kampüse uzaklık: 19KM
+                                            <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Anafartalar,+Y%C3%BCksek+%C3%96%C4%9Frenim+Kredi+Ve+Yurtlar+Kurumu+Yunus+Emre+Erkek+%C3%96%C4%9Frenci+Yurdu,+%C3%87ank%C4%B1r%C4%B1+Cd.+No:33,+06050+Alt%C4%B1nda%C4%9F%2FAnkara" class="ml-2 text-red-600 hover:text-red-700 group-hover:translate-x-1 transition-transform" target="_blank">Haritada gör</a>
+                            </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0l-1-7M5 21h-2m2 0l1-7m0 0l1-7h8l1 7m-10 0h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            Kyk Tipi: Bilgi yok
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="group">
+                                    <h3 class="text-lg font-semibold text-gray-900">KYK Hüseyin Gazi Erkek Öğrenci Yurdu</h3>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34e88ba10239d:0x3bea34f3e9f3ab69" class="text-red-600 hover:text-red-700" target="_blank">Google Maps</a>
+                                </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            Kampüse uzaklık: 19KM
+                                            <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Z%C3%BCbeyde+Han%C4%B1m,+KYK+H%C3%BCseyin+Gazi+Erkek+%C3%96%C4%9Frenci+Yurdu,+643.+Sk.+No:2%2FA,+06070+Alt%C4%B1nda%C4%9F%2FAnkara" class="ml-2 text-red-600 hover:text-red-700 group-hover:translate-x-1 transition-transform" target="_blank">Haritada gör</a>
+                                </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0l-1-7M5 21h-2m2 0l1-7m0 0l1-7h8l1 7m-10 0h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            Kyk Tipi: Tip 6 - Odalar 6 Kişilik
+                                </div>
+                            </div>
+                                </li>
+                                <li class="group">
+                                    <h3 class="text-lg font-semibold text-gray-900">Gölbaşı KYK Erkek Yurdu</h3>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d3422f0e9a04fd:0x1e3c69058be433c2" class="text-red-600 hover:text-red-700" target="_blank">Google Maps</a>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Kampüse uzaklık: 24KM
+                                            <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Bah%C3%A7elievler,+G%C3%B6lba%C5%9F%C4%B1+KYK+Erkek+Yurdu,+06830+G%C3%B6lba%C5%9F%C4%B1%2FAnkara" class="ml-2 text-red-600 hover:text-red-700 group-hover:translate-x-1 transition-transform" target="_blank">Haritada gör</a>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0l-1-7M5 21h-2m2 0l1-7m0 0l1-7h8l1 7m-10 0h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Kyk Tipi: Tip bilinmiyor - Odalar 4-6 Kişilik
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H15M9 21V17C9 15.8954 9.89543 15 11 15H13C14.1046 15 15 15.8954 15 17V21M9 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Kız KYK'lar</h2>
+                            <ul class="space-y-6">
+                                <li class="group">
+                                    <h3 class="text-lg font-semibold text-gray-900">Nene Hatun Kız Öğrenci Yurdu - 2024 - 2025 İçin Kapalı Durumda</h3>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34f301f1cc1e1:0x975ce6ddf95ed711" class="text-red-600 hover:text-red-700" target="_blank">Google Maps</a>
+                                </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            Kampüse uzaklık: 14KM
+                                            <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Nene+Hatun+K%C4%B1z+%C3%96%C4%9Frenci+Yurdu,+Bah%C3%A7elievler+8.+Cad.%2F15.+Sok.+No:46,+06490+%C3%87ankaya%2FAnkara" class="ml-2 text-red-600 hover:text-red-700 group-hover:translate-x-1 transition-transform" target="_blank">Haritada gör</a>
+                                </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0l-1-7M5 21h-2m2 0l1-7m0 0l1-7h8l1 7m-10 0h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            Kyk Tipi: Bilgi yok 2024 - 2025 için kapalı durumda.
+                                </div>
+                            </div>
+                                </li>
+                                <li class="group">
+                                    <h3 class="text-lg font-semibold text-gray-900">KYK Beştepe Kız Öğrenci Yurdu</h3>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34f2e60faa05b:0x651b7bde40e6abe3" class="text-red-600 hover:text-red-700" target="_blank">Google Maps</a>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Kampüse uzaklık: 15KM
+                                            <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Be%C5%9Ftepe,+KYK+Be%C5%9Ftepe+K%C4%B1z+%C3%96%C4%9Frenci+Yurdu,+Meri%C3%A7+Sk.+No:11,+06560+Yenimahalle%2FAnkara" class="ml-2 text-red-600 hover:text-red-700 group-hover:translate-x-1 transition-transform" target="_blank">Haritada gör</a>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0l-1-7M5 21h-2m2 0l1-7m0 0l1-7h8l1 7m-10 0h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Kyk Tipi: Bilgi yok
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="group">
+                                    <h3 class="text-lg font-semibold text-gray-900">Saime Kadın KYK Kız Öğrenci Yurdu</h3>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d34f2c6b3a6aa5:0x8350305d22876a1f" class="text-red-600 hover:text-red-700" target="_blank">Google Maps</a>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            Kampüse uzaklık: 22KM
+                                            <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Alt%C4%B1nevler,+Saime+Kad%C4%B1n+KYK+K%C4%B1z+%C3%96%C4%9Frenci+Yurdu,+06350+Mamak%2FAnkara" class="ml-2 text-red-600 hover:text-red-700 group-hover:translate-x-1 transition-transform" target="_blank">Haritada gör</a>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0l-1-7M5 21h-2m2 0l1-7m0 0l1-7h8l1 7m-10 0h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            Kyk Tipi: Tip bilinmiyor - Odalar 4 Kişilik
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="group">
+                                    <h3 class="text-lg font-semibold text-gray-900">KYK Milli İrade Kız Öğrenci Yurdu</h3>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14d341f44855550f:0x94949c9fce8de83d" class="text-red-600 hover:text-red-700" target="_blank">Google Maps</a>
+                                </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            Kampüse uzaklık: 24KM
+                                            <a href="https://www.google.com/maps/dir/Hacettepe+%C3%9Cniversitesi+Beytepe+Yerle%C5%9Fkesi,+%C3%9Cniversiteler,+Hacettepe+Beytepe+Kamp%C3%BCs%C3%BC+35+C,+06800+%C3%87ankaya%2FAnkara/Bah%C3%A7elievler,+KYK+Milli+%C4%B0rade+K%C4%B1z+%C3%96%C4%9Frenci+Yurdu,+D750,+06830+G%C3%B6lba%C5%9F%C4%B1%2FAnkara" class="ml-2 text-red-600 hover:text-red-700 group-hover:translate-x-1 transition-transform" target="_blank">Haritada gör</a>
+                                </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0l-1-7M5 21h-2m2 0l1-7m0 0l1-7h8l1 7m-10 0h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                            Kyk Tipi: Tip bilinmiyor - Odalar 4 Kişilik
+                                </div>
+                            </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
 
-        <footer class="bg-red-700 text-white py-4 mt-8">
-            <div class="container mx-auto px-4 text-center">
-                <p>&copy; 2024 <a href='https://akiner.net'>Akıner Kısa</a>. <a href='../hakkinda.html'>Site Hakkında</a></p>
-                <a href="../index.html" class="text-white hover:text-gray-200 mt-2 inline-block">Ana Sayfaya Dön</a>
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-gray-600 text-sm">Hacettepe Bilgilendirme</span>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="https://akiner.net" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Akıner Kısa</a>
+                        <a href="../hakkinda.html" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Site Hakkında</a>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>

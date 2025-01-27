@@ -4,75 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hazırlık Sınıfı - Hacettepe Üniversitesi</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Hacettepe Üniversitesi hazırlık sınıfı hakkında detaylı bilgiler, zorunlu hazırlık olan bölümler, muafiyet takvimi ve isteğe bağlı hazırlık seçenekleri.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
         .bg-pattern {
-            background-color: #f8f8f8;
-            background-image: linear-gradient(#ff000015 2px, transparent 2px),
-                              linear-gradient(to right, #ff000015 2px, transparent 2px);
-            background-size: 40px 40px;
+            background-color: #ffffff;
+            background-image: radial-gradient(#ff000008 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .card-hover {
+            transition: all 0.2s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
     </style>
 </head>
 <body class="bg-pattern min-h-screen">
     <div class="min-h-screen flex flex-col">
-        <header class="bg-red-700 text-white py-6">
+        <!-- Navbar -->
+        <nav class="bg-white/80 backdrop-blur-sm border-b border-red-100 sticky top-0 z-50">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl font-bold text-center">Hazırlık Sınıfı</h1>
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <a href="../index.html" class="font-medium text-gray-800">Hacettepe Bilgilendirme</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 py-8">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl font-bold text-gray-900 text-center">Kayıt İşlemleri</h1>
+                <p class="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
+                    Hacettepe Üniversitesi'ne yeni kayıt olan öğrenciler için kayıt işlemleri, önemli tarihler ve gerekli belgeler hakkında bilgiler.
+                </p>
             </div>
         </header>
 
         <main class="flex-grow container mx-auto px-4 py-8">
-            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 class="text-2xl font-bold text-red-800 mb-4">Zorunlu Hazırlık Olan Bölümler</h2>
-                <p class="text-gray-700 mb-4">
-                    Zorunlu hazırlık olan bölümlerin listesini görmek için 
-                    <a href="https://iso.hacettepe.edu.tr/egitimdilleri.pdf" target="_blank" class="text-red-600 hover:underline">
-                        buraya tıklayınız
-                    </a>.
-                </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 6.25278V19.2528M12 6.25278C10.8321 5.47686 9.24649 5 7.5 5C5.75351 5 4.16789 5.47686 3 6.25278V19.2528C4.16789 18.4769 5.75351 18 7.5 18C9.24649 18 10.8321 18.4769 12 19.2528M12 6.25278C13.1679 5.47686 14.7535 5 16.5 5C18.2465 5 19.8321 5.47686 21 6.25278V19.2528C19.8321 18.4769 18.2465 18 16.5 18C14.7535 18 13.1679 18.4769 12 19.2528" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Zorunlu Hazırlık</h2>
+                            <p class="text-gray-600 mb-4">
+                                Zorunlu hazırlık olan bölümlerin listesini görmek için aşağıdaki bağlantıyı kullanabilirsiniz.
+                            </p>
+                            <a href="https://iso.hacettepe.edu.tr/egitimdilleri.pdf" target="_blank" class="flex items-center text-gray-600 hover:text-red-600 transition-colors group">
+                                    <svg class="w-4 h-4 mr-2 transform transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                Zorunlu Hazırlık Olan Bölümler Listesi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Muafiyet Takvimi</h2>
+                            <p class="text-gray-600 mb-4">
+                                2024-2025 akademik yılı için hazırlık düzey belirleme ve muafiyet takvimini inceleyebilirsiniz.
+                            </p>
+                            <a href="https://fs.hacettepe.edu.tr/ydyo/%C4%B0rem/24-25%20MUAFIYET%20TAKVIMI.pdf" target="_blank" class="flex items-center text-gray-600 hover:text-red-600 transition-colors group">
+                                        <svg class="w-4 h-4 mr-2 transform transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                Muafiyet ve Düzey Belirleme Takvimi
+                                    </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover md:col-span-2">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">İsteğe Bağlı Hazırlık</h2>
+                            <div class="space-y-4">
+                                <p class="text-gray-600">
+                                    İsteğe bağlı hazırlık için e-devletten kayıt esnasında seçim yapılmalıdır.
+                                </p>
+                                <p class="text-gray-600">
+                                    Hacettepe Üniversitesi'nde İngilizce, Almanca ve Fransızca hazırlık sınıfları bulunmaktadır.
+                                </p>
+                                <div class="flex items-center text-gray-600">
+                                    <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                        <path d="M13 16H12V12H11M12 8H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>İsteğe bağlı hazırlık sınıflarının seviye belirleme takvimi, muafiyet takvimiyle aynıdır.</span>
+                                </div>
+                                <a href="https://fs.hacettepe.edu.tr/ydyo/%C4%B0rem/%C4%B1stege%20bagl%C4%B1%202024%202025.pdf" target="_blank" class="flex items-center text-gray-600 hover:text-red-600 transition-colors group">
+                                    <svg class="w-4 h-4 mr-2 transform transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    İsteğe Bağlı Hazırlık Başvuru Formu
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 class="text-2xl font-bold text-red-800 mb-4">Hazırlık Düzey Belirleme ve Muafiyet Takvimi</h2>
-                <p class="text-gray-700 mb-4">
-                    2024-2025 akademik yılı için hazırlık düzey belirleme ve muafiyet takvimini görmek için 
-                    <a href="https://fs.hacettepe.edu.tr/ydyo/%C4%B0rem/24-25%20MUAFIYET%20TAKVIMI.pdf" target="_blank" class="text-red-600 hover:underline">
-                        buraya tıklayınız
-                    </a>.
-                </p>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 class="text-2xl font-bold text-red-800 mb-4">İsteğe Bağlı Hazırlık</h2>
-                <p class="text-gray-700 mb-4">
-                    İsteğe bağlı hazırlık için e-devletten kayıt esnasında seçim yapılmalıdır.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    Hacettepe Üniversitesi'nde İngilizce, Almanca ve Fransızca hazırlık sınıfları bulunmaktadır.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    İsteğe bağlı hazırlık için 
-                    <a href="https://fs.hacettepe.edu.tr/ydyo/%C4%B0rem/%C4%B1stege%20bagl%C4%B1%202024%202025.pdf" target="_blank" class="text-red-600 hover:underline">
-                        bu formun
-                    </a> 
-                    doldurulması gerekmektedir.
-                </p>
-                <p class="text-gray-700 mb-4">
-                    İsteğe bağlı hazırlık sınıflarının seviye belirleme takvimi, muafiyet takvimiyle aynıdır.
-                </p>
-            </div>
-
-            
-            <div class="text-center mt-8">
-                <p class="text-gray-600">Kaynak: <a href="https://ydyo.hacettepe.edu.tr/" class="text-red-600 hover:underline" target="_blank">https://ydyo.hacettepe.edu.tr/</a></p>
+            <div class="mt-8 bg-white rounded-xl border border-red-100 p-6">
+                <div class="flex items-start space-x-3">
+                    <svg class="w-6 h-6 text-red-600 mt-0.5" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 9V11M12 15H12.01M5.07183 19H18.9282C20.4678 19 21.4301 17.3333 20.6603 16L13.7321 4C12.9623 2.66667 11.0377 2.66667 10.2679 4L3.33975 16C2.56995 17.3333 3.53217 19 5.07183 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div>
+                        <h2 class="text-lg font-semibold text-gray-900 mb-2">Kaynak Bilgisi</h2>
+                        <p class="text-gray-600">
+                            Daha detaylı bilgi için 
+                            <a href="https://ydyo.hacettepe.edu.tr/" class="text-red-600 hover:text-red-700" target="_blank">
+                                Yabancı Diller Yüksekokulu
+                            </a> 
+                            web sitesini ziyaret edebilirsiniz.
+                        </p>
+                    </div>
+                </div>
             </div>
         </main>
 
-        <footer class="bg-red-700 text-white py-4 mt-8">
-            <div class="container mx-auto px-4 text-center">
-                <p>&copy; 2024 <a href='https://akiner.net'>Akıner Kısa</a>. <a href='../hakkinda.html'>Site Hakkında</a></p>
-                <a href="../index.html" class="text-white hover:text-gray-200 mt-2 inline-block">Ana Sayfaya Dön</a>
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-gray-600 text-sm">Hacettepe Bilgilendirme</span>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="https://akiner.net" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Akıner Kısa</a>
+                        <a href="../hakkinda.html" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Site Hakkında</a>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>

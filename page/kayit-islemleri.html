@@ -4,63 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kayıt İşlemleri - Hacettepe Üniversitesi</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Hacettepe Üniversitesi'ne yeni kayıt olan öğrenciler için kayıt işlemleri, önemli tarihler ve gerekli belgeler hakkında bilgiler.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
         .bg-pattern {
-            background-color: #f8f8f8;
-            background-image: linear-gradient(#ff000015 2px, transparent 2px),
-                              linear-gradient(to right, #ff000015 2px, transparent 2px);
-            background-size: 40px 40px;
+            background-color: #ffffff;
+            background-image: radial-gradient(#ff000008 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .card-hover {
+            transition: all 0.2s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
     </style>
 </head>
 <body class="bg-pattern min-h-screen">
     <div id="app" class="min-h-screen flex flex-col">
-        <header class="bg-red-700 text-white py-6">
+        <!-- Navbar -->
+        <nav class="bg-white/80 backdrop-blur-sm border-b border-red-100 sticky top-0 z-50">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl font-bold text-center">Kayıt İşlemleri</h1>
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <a href="../index.html" class="font-medium text-gray-800">Hacettepe Bilgilendirme</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 py-8">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl font-bold text-gray-900 text-center">Kayıt İşlemleri</h1>
+                <p class="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
+                    Hacettepe Üniversitesi'ne yeni kayıt olan öğrenciler için kayıt işlemleri, önemli tarihler ve gerekli belgeler hakkında bilgiler.
+                </p>
             </div>
         </header>
 
         <main class="flex-grow container mx-auto px-4 py-8">
-            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 class="text-2xl font-bold text-red-800 mb-4">Önemli Linkler</h2>
-                <ul class="list-disc list-inside text-gray-700">
-                    <li v-for="link in importantLinks" :key="link.text">
-                        <a :href="link.url" class="text-red-600 hover:underline" target="_blank">{{ link.text }}</a>
-                    </li>
-                </ul>
-            </div>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M13.5 10.5L21 3M16 3H21V8M11 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21H17C18.1046 21 19 20.1046 19 19V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Önemli Linkler</h2>
+                            <ul class="space-y-3">
+                                <li v-for="link in importantLinks" :key="link.text">
+                                    <a :href="link.url" target="_blank" class="flex items-center text-red-600 hover:text-red-700 transition-colors group">
+                                        <svg class="w-4 h-4 mr-2 transform transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        {{ link.text }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 class="text-2xl font-bold text-red-800 mb-4">Önemli Tarihler</h2>
-                <ul class="list-disc list-inside text-gray-700">
-                    <li v-for="date in importantDates" :key="date">{{ date }}</li>
-                </ul>
-            </div>
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Önemli Tarihler</h2>
+                            <ul class="space-y-3">
+                                <li v-for="date in importantDates" :key="date" class="text-gray-600" v-html="date">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 class="text-2xl font-bold text-red-800 mb-4">Hatırlatma</h2>
-                <p class="text-gray-700">{{ reminder }}</p>
-            </div>
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Hatırlatma</h2>
+                            <p class="text-gray-600">{{ reminder }}</p>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 class="text-2xl font-bold text-red-800 mb-4">Önemli Not</h2>
-                <ul class="list-disc list-inside text-gray-700">
-                    <li v-for="note in importantNotes" :key="note">{{ note }}</li>
-                </ul>
-            </div>
-
-            <div class="text-center mt-8">
-                <p class="text-gray-600">Kaynak: <a href="https://yenikazanan2.hacettepe.edu.tr/" class="text-red-600 hover:underline" target="_blank">https://yenikazanan2.hacettepe.edu.tr/</a></p>
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2 mt-1">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 9V11M12 15H12.01M5.07183 19H18.9282C20.4678 19 21.4301 17.3333 20.6603 16L13.7321 4C12.9623 2.66667 11.0377 2.66667 10.2679 4L3.33975 16C2.56995 17.3333 3.53217 19 5.07183 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">Önemli Not</h2>
+                            <ul class="space-y-3">
+                                <li v-for="note in importantNotes" :key="note" class="text-gray-600" v-html="note">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
 
-        <footer class="bg-red-700 text-white py-4 mt-8">
-            <div class="container mx-auto px-4 text-center">
-                <p>&copy; 2024 <a href='https://akiner.net'>Akıner Kısa</a>. <a href='../hakkinda.html'>Site Hakkında</a></p>
-                <a href="../index.html" class="text-white hover:text-gray-200 mt-2 inline-block">Ana Sayfaya Dön</a>
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-gray-600 text-sm">Hacettepe Bilgilendirme</span>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="https://akiner.net" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Akıner Kısa</a>
+                        <a href="../hakkinda.html" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Site Hakkında</a>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>
@@ -80,18 +168,18 @@
                         { text: '(16-20 Eylül 2024) ÜNİ101 Üniversite Yaşamına Giriş dersi hakkında bilgi için', url: 'https://uni101.hacettepe.edu.tr' },
                     ],
                     importantDates: [
-                        'Zorunlu Hazırlık Sınıfı için Yabancı Dil Muafiyet Sınavı ve Düzey Belirleme ile İsteğe Bağlı Hazırlık Programları için Düzey Belirleme Sınavı 09-15 Eylül 2024 Bkz. https://ydyo.hacettepe.edu.tr',
-                        'Ortak Zorunlu Yabancı Dil Dersleri Muafiyet Sınavı başvuruları 16-17 Eylül 2024 sınavı 24 Eylül 2024 Bkz. https://ydyo.hacettepe.edu.tr',
-                        'Temel Bilgi ve İletişim Teknolojileri Kullanımı (BEB 650) Dersi Muafiyet Sınavı Başvuru Tarihleri 12-13 Eylül 2024 Bkz. https://bilisim.hacettepe.edu.tr/',
-                        'Temel Bilgi ve İletişim Teknolojileri Kullanımı (BEB 650) Dersi muafiyet sınavı 25 Eylül 2024 Bkz. https://bilisim.hacettepe.edu.tr/',
+                        'Zorunlu Hazırlık Sınıfı için Yabancı Dil Muafiyet Sınavı ve Düzey Belirleme ile İsteğe Bağlı Hazırlık Programları için Düzey Belirleme Sınavı 09-15 Eylül 2024 - <a href="https://ydyo.hacettepe.edu.tr" target="_blank" class="text-red-600 hover:text-red-700">Detaylı Bilgi</a>',
+                        'Ortak Zorunlu Yabancı Dil Dersleri Muafiyet Sınavı başvuruları 16-17 Eylül 2024 sınavı 24 Eylül 2024 - <a href="https://ydyo.hacettepe.edu.tr" target="_blank" class="text-red-600 hover:text-red-700">Detaylı Bilgi</a>',
+                        'Temel Bilgi ve İletişim Teknolojileri Kullanımı (BEB 650) Dersi Muafiyet Sınavı Başvuru Tarihleri 12-13 Eylül 2024 - <a href="https://bilisim.hacettepe.edu.tr/" target="_blank" class="text-red-600 hover:text-red-700">Detaylı Bilgi</a>',
+                        'Temel Bilgi ve İletişim Teknolojileri Kullanımı (BEB 650) Dersi muafiyet sınavı 25 Eylül 2024 - <a href="https://bilisim.hacettepe.edu.tr/" target="_blank" class="text-red-600 hover:text-red-700">Detaylı Bilgi</a>',
                         'İkinci üniversite katkı payı ödemesinin son günü 04 Ekim 2024',
                         'Ders Kayıt Haftası (Tıp Fakültesi hariç) 18-20 Eylül 2024'
                     ],
                     reminder: 'Öğrenci kimlik kartlarınızı Öğrenci İşleri Daire Başkanlığı\'nın web sayfasında duyurulacak tarihten itibaren kayıtlı olduğunuz bölümden/programdan alabilirsiniz.',
                     importantNotes: [
-                        'Üniversite kayıtlarından sonra ŞİFRE İŞLEMLERİ (tıklayınız) sayfasından "BİLSİS Şifresi Alma İşlemleri" kılavuzunu inceleyerek öğrenci numaranız ve öğrenci bilgi sistemi şifreniz için işlemlerinizi yapabilirsiniz',
+                        'Üniversite kayıtlarından sonra <a href="https://oidb.hacettepe.edu.tr/sifre-islemleri" target="_blank" class="text-red-600 hover:text-red-700">ŞİFRE İŞLEMLERİ</a> sayfasından "BİLSİS Şifresi Alma İşlemleri" kılavuzunu inceleyerek öğrenci numaranız ve öğrenci bilgi sistemi şifreniz için işlemlerinizi yapabilirsiniz',
                         '@hacettepe.edu.tr uzantılı e-posta adresleriniz, kayıt işleminden 24 saat sonra Bilgi İşlem Daire Başkanlığı tarafından oluşturularak, ÖSYM Başkanlığından tarafımıza aktarılan e-posta adreslerinize iletilecektir.',
-                        'Tarafına SMS veya eposta ulaşmayan öğrencilerimiz https://portal.hacettepe.edu.tr adresinden "Kullanıcı Adımı Unuttum" , "Şifremi Unuttum" buttonlarını kullanarak kurumsal E-posta adreslerini öğrenebilirler.'
+                        'Tarafına SMS veya eposta ulaşmayan öğrencilerimiz <a href="https://portal.hacettepe.edu.tr" target="_blank" class="text-red-600 hover:text-red-700">portal.hacettepe.edu.tr</a> adresinden "Kullanıcı Adımı Unuttum" , "Şifremi Unuttum" buttonlarını kullanarak kurumsal E-posta adreslerini öğrenebilirler.'
                     ]
                 }
             }

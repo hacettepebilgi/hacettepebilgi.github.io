@@ -3,46 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hacettepe Üniversitesi bilgilendirme platformu hakkında bilgiler ve iletişim detayları.">
+    <meta name="keywords" content="Hacettepe Üniversitesi, site hakkında, iletişim">
+    <meta name="author" content="Akıner Kısa">
+    <meta name="robots" content="index, follow">
     <title>Site Hakkında - Hacettepe Üniversitesi</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
         .bg-pattern {
-            background-color: #f8f8f8;
-            background-image: linear-gradient(#ff000015 2px, transparent 2px),
-                              linear-gradient(to right, #ff000015 2px, transparent 2px);
-            background-size: 40px 40px;
+            background-color: #ffffff;
+            background-image: radial-gradient(#ff000008 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .card-hover {
+            transition: all 0.2s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
     </style>
 </head>
 <body class="bg-pattern min-h-screen">
     <div class="min-h-screen flex flex-col">
-        <header class="bg-red-700 text-white py-6">
+        <!-- Navbar -->
+        <nav class="bg-white/80 backdrop-blur-sm border-b border-red-100 sticky top-0 z-50">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl font-bold text-center">Site Hakkında</h1>
+                <div class="flex justify-between items-center h-16">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="font-medium text-gray-800">Hacettepe Bilgilendirme</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 py-8">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl font-bold text-gray-900 text-center">Site Hakkında</h1>
+                <p class="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
+                    Hacettepe Üniversitesi öğrencileri için hazırlanmış bilgilendirme platformu hakkında detaylı bilgiler ve iletişim kanalları.
+                </p>
             </div>
         </header>
 
         <main class="flex-grow container mx-auto px-4 py-8">
-            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 class="text-2xl font-bold text-red-800 mb-4">Site Hakkında</h2>
-                <div class="text-gray-700 space-y-4">
-                    <p>
-                        Bu site Hacettepe Üniversitesine ait bilgileri bir yerde toplamak amacıyla açılmıştır. Hacettepe Üniversitesi yönetimiyle bir alakası bulunmamaktadır.
-                    </p>
-                    <p>
-                        Site hakkında iletişim için mail: akiner[at]outlook[dot]com[dot]tr instagram:<a href='https://www.instagram.com/akiner1337'>akiner1337</a>
-                    </p>
-                    <p>
-                        Siteye katkıda bulunmak için github: <a href='https://github.com/akinerkisa/hacettepebilgi.github.io'>https://github.com/akinerkisa/hacettepebilgi.github.io</a>
-                    </p>
+            <div class="space-y-6">
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 8V12M12 16H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-900 mb-2">Proje Hakkında</h2>
+                            <p class="text-gray-600">
+                                Bu site Hacettepe Üniversitesine ait bilgileri bir yerde toplamak amacıyla açılmıştır. Hacettepe Üniversitesi yönetimiyle bir alakası bulunmamaktadır.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 8L10.8906 13.2604C11.5624 13.7394 12.4376 13.7394 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-900 mb-2">İletişim</h2>
+                            <div class="space-y-3">
+                                <p class="text-gray-600">
+                                    E-posta: akiner[at]outlook[dot]com[dot]tr
+                                </p>
+                                <p class="text-gray-600">
+                                    Instagram: 
+                                    <a href='https://www.instagram.com/akiner1337' class="text-red-600 hover:text-red-700 inline-flex items-center group">
+                                        @akiner1337
+                                        <svg class="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-red-50 rounded-lg p-2">
+                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 15V3M12 15L8 11M12 15L16 11M2 17L2.621 19.485C2.72915 19.9177 2.97882 20.3018 3.33033 20.5763C3.68184 20.8508 4.11501 20.9999 4.561 21H19.439C19.885 20.9999 20.3182 20.8508 20.6697 20.5763C21.0212 20.3018 21.2708 19.9177 21.379 19.485L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-900 mb-2">Katkıda Bulunma</h2>
+                            <p class="text-gray-600 mb-3">
+                                Siteye katkıda bulunmak için GitHub üzerinden projeye erişebilirsiniz:
+                            </p>
+                            <a href='https://github.com/akinerkisa/hacettepebilgi.github.io' 
+                               class="text-red-600 hover:text-red-700 inline-flex items-center group">
+                                GitHub Projesi
+                                <svg class="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
 
-        <footer class="bg-red-700 text-white py-4 mt-8">
-            <div class="container mx-auto px-4 text-center">
-                <p>&copy; 2024 <a href='https://akiner.net'>Akıner Kısa</a>. <a href='hakkinda.html'>Site Hakkında</a></p>
-                <a href="index.html" class="text-white hover:text-gray-200 mt-2 inline-block">Ana Sayfaya Dön</a>
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-gray-600 text-sm">Hacettepe Bilgilendirme</span>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="https://akiner.net" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Akıner Kısa</a>
+                        <a href="hakkinda.html" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Site Hakkında</a>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>

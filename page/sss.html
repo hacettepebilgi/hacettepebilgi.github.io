@@ -4,39 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sıkça Sorulan Sorular - Hacettepe Üniversitesi</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Hacettepe Üniversitesi öğrencilerinin sıkça sorduğu sorular ve cevapları.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .bg-pattern {
-            background-color: #f8f8f8;
-            background-image: linear-gradient(#ff000015 2px, transparent 2px),
-                              linear-gradient(to right, #ff000015 2px, transparent 2px);
-            background-size: 40px 40px;
+        body {
+            font-family: 'Inter', sans-serif;
         }
         .news-content {
             display: none;
         }
     </style>
 </head>
-<body class="bg-pattern min-h-screen">
+<body class="bg-gray-50">
     <div class="min-h-screen flex flex-col">
-        <header class="bg-red-700 text-white py-6">
+        <!-- Navigation -->
+        <nav class="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl font-bold text-center">Sıkça Sorulan Sorular</h1>
+                <div class="flex justify-between items-center h-16">
+                    <a href="../index.html" class="flex items-center space-x-4">
+                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-gray-900 font-medium">Hacettepe Bilgilendirme</span>
+                    </a>
+                    <div class="flex space-x-4">
+                        <a href="../index.html" class="text-gray-600 hover:text-red-600 px-3 py-2 rounded-md text-sm transition-colors">Ana Sayfa</a>
+                        <a href="../hakkinda.html" class="text-gray-600 hover:text-red-600 px-3 py-2 rounded-md text-sm transition-colors">Hakkında</a>
+                    </div>
+                </div>
             </div>
-        </header>
+        </nav>
+
+        <!-- Header -->
+        <div class="bg-white border-b border-gray-100">
+            <div class="container mx-auto px-4 py-16">
+                <h1 class="text-4xl font-bold text-gray-900 text-center mb-4">Sıkça Sorulan Sorular</h1>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto">Bu sayfada öğrencilerin sıkça sordukları soruların cevaplarını bulabilirsiniz.</p>
+            </div>
+        </div>
 
         <main class="flex-grow container mx-auto px-4 py-8">
-            <p class="text-lg text-gray-700 mb-6">Bu sayfada öğrencilerin sıkça sordukları soruların cevaplarını bulabilirsiniz.</p>
-
-            <div class="space-y-4" id="faq-container">
-                <!-- Sorular buraya dinamik olarak eklenecek -->
+            <div class="max-w-3xl mx-auto space-y-4" id="faq-container">
             </div>
         </main>
 
-        <footer class="bg-red-700 text-white py-4 mt-8">
-            <div class="container mx-auto px-4 text-center">
-                <p>&copy; 2024 <a href='https://akiner.net'>Akıner Kısa</a>. <a href='../hakkinda.html'>Site Hakkında</a></p>
-                <a href="../index.html" class="text-white hover:text-gray-200 mt-2 inline-block">Ana Sayfaya Dön</a>
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-gray-600 text-sm">Hacettepe Bilgilendirme</span>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="https://akiner.net" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Akıner Kısa</a>
+                        <a href="../hakkinda.html" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Site Hakkında</a>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>
@@ -46,12 +80,12 @@
             {
                 question: "Oryantasyona katılmam zorunlu mu?",
                 answer: `Bu yıl katılmanız zorunlu değil ama UNI101 dersi zorunlu. Üniversite hayatınız boyunca bir kere almanız gereken bir ders UNI101 ve bu dersi oryantasyonda alıyorsunuz, yeni kayıt yapmış bir öğrenciyseniz almanızı öneririz ancak sonraki yıllarda da bu UNI101 dersini alabilirsiniz. 
-                         <br>UNI101 hakkında daha fazla bilgi için <a href="https://uni101.hacettepe.edu.tr" class="underline text-blue-600 hover:text-blue-800">tıklayınız</a>.`
+                         <br>UNI101 hakkında daha fazla bilgi için <a href="https://uni101.hacettepe.edu.tr" class="text-red-600 hover:text-red-700">tıklayınız</a>.`
             },
             {
                 question: "Dersler ne zaman başlıyor?",
                 answer: `2024 yılı için oryantasyon 16 Eylül'de, bölüm dersleri ise 23 Eylül'de başlıyor.
-                         <br>Bunun gibi soruların cevaplarına akademik takvimden erişebilirsiniz. Akademik takvime erişmek için <a href="akademik-takvim.html" class="underline text-blue-600 hover:text-blue-800">tıklayınız</a>.`
+                         <br>Bunun gibi soruların cevaplarına akademik takvimden erişebilirsiniz. Akademik takvime erişmek için <a href="akademik-takvim.html" class="text-red-600 hover:text-red-700">tıklayınız</a>.`
             },
             {
                 question: "Kayıt işlemlerini nasıl yapabilirim?",
@@ -59,11 +93,11 @@
             },
             {
                 question: "Hazırlık seviye belirleme sınavına nerede gireceğim?",
-                answer: '2024 yılı için hazırlık sınavına hangi bina ve hangi derslikte gireceğinizi öğrenmek için <a href="https://ydyo.hacettepe.edu.tr/tr/%3Cimg_src=fshacettepeedutrydyor-1631" class="underline text-blue-600 hover:text-blue-800">tıklayınız</a>.'
+                answer: '2024 yılı için hazırlık sınavına hangi bina ve hangi derslikte gireceğinizi öğrenmek için <a href="https://ydyo.hacettepe.edu.tr/tr/%3Cimg_src=fshacettepeedutrydyor-1631" class="text-red-600 hover:text-red-700">tıklayınız</a>.'
             },
             {
                 question: "Hazırlık sınıfı muafiyet sınavı ne zaman?",
-                answer: 'Hazırlık sınıfı muafiyet sınavı 9-15 Eylül tarihleri arasında yapılacaktır. Kesin tarih ve detaylar için <a href="hazirlik.html" class="underline text-blue-600 hover:text-blue-800">tıklayınız</a>.'
+                answer: 'Hazırlık sınıfı muafiyet sınavı 9-15 Eylül tarihleri arasında yapılacaktır. Kesin tarih ve detaylar için <a href="hazirlik.html" class="text-red-600 hover:text-red-700">tıklayınız</a>.'
             },
             {
                 question: "Zorunlu hazırlık atlama/muafiyet sınavına nasıl başvurabilirim?",
@@ -75,23 +109,23 @@
             },
             {
                 question: "Hazırlık sınıfı zorunlu mu?",
-                answer: 'Eğer bölümünüz %100 veya %30 İngilizce ise zorunludur. Değilse isteğe bağlı hazırlık alabilirsiniz. Detaylı bilgi için <a href="hazirlik.html" class="underline text-blue-600 hover:text-blue-800">tıklayınız</a>.'
+                answer: 'Eğer bölümünüz %100 veya %30 İngilizce ise zorunludur. Değilse isteğe bağlı hazırlık alabilirsiniz. Detaylı bilgi için <a href="hazirlik.html" class="text-red-600 hover:text-red-700">tıklayınız</a>.'
             },
             {
                 question: "Öğrenci e-postamı nasıl alabilirim?",
-                answer: 'Kayıt olduktan sonra size SMS ile Hacettepe uzantılı e-posta bilgileri gelecektir. Eğer gelmediyse <a href="https://portal.hacettepe.edu.tr" class="underline text-blue-600 hover:text-blue-800">Hacettepe Portal</a> üzerinden kullanıcı adı ve şifre alıp erişebilirsiniz.'
+                answer: 'Kayıt olduktan sonra size SMS ile Hacettepe uzantılı e-posta bilgileri gelecektir. Eğer gelmediyse <a href="https://portal.hacettepe.edu.tr" class="text-red-600 hover:text-red-700">Hacettepe Portal</a> üzerinden kullanıcı adı ve şifre alıp erişebilirsiniz.'
             },
             {
                 question: "Hazırlık seviye belirleme sınavı online mı yoksa yüz yüze mi?",
-                answer: 'Hazırlık seviye belirleme sınavı yüz yüze yapılacaktır. Hazırlık hakkında detaylı bilgi için <a href="hazirlik.html" class="underline text-blue-600 hover:text-blue-800">tıklayınız</a>.'
+                answer: 'Hazırlık seviye belirleme sınavı yüz yüze yapılacaktır. Hazırlık hakkında detaylı bilgi için <a href="hazirlik.html" class="text-red-600 hover:text-red-700">tıklayınız</a>.'
             },
             {
                 question: "Beytepe'de hangi bölümler var?",
-                answer: `Beytepe kampüsünde sağlık bölümleri ve meslek yüksek okulları dışındaki çoğu bölüm yer almaktadır. Beytepe kampüsündeki fakültelerin listesi için <a href="https://tr.wikipedia.org/wiki/Hacettepe_%C3%9Cniversitesi_Beytepe_Kamp%C3%BCs%C3%BC" class="underline text-blue-600 hover:text-blue-800">tıklayınız</a>.`
+                answer: `Beytepe kampüsünde sağlık bölümleri ve meslek yüksek okulları dışındaki çoğu bölüm yer almaktadır. Beytepe kampüsündeki fakültelerin listesi için <a href="https://tr.wikipedia.org/wiki/Hacettepe_%C3%9Cniversitesi_Beytepe_Kamp%C3%BCs%C3%BC" class="text-red-600 hover:text-red-700">tıklayınız</a>.`
             },
             {
                 question: "Hacettepe yurtları ve öğrenci evi çıkmazsa ne yapabilirim?",
-                answer: "Beytepe kampüsü içerisinde Beytepe Kız KYK yurdu ve kampüste sayılan Emine Şerife Hanım kız KYK yurdu bulunmaktadır. Bu yurtlara becayiş yapabilirsiniz. Kampüste erkek KYK yurdu bulunmamaktadır. Özel yurt olarak Parlar Kız Öğrenci yurdu ve Atatepe Öğrenci Yurdu bulunmaktadır. Barınma olanakları hakkında detaylı bilgiye <a href='barinma.html' class='underline text-blue-600 hover:text-blue-800'>Barınma sayfasından</a>, çevredeki kyk yurtlarına ise <a href='cevredeki-kyklar.html' class='underline text-blue-600 hover:text-blue-800'>çevredeki KYK'lar</a> sayfasından bakabilirsiniz."
+                answer: "Beytepe kampüsü içerisinde Beytepe Kız KYK yurdu ve kampüste sayılan Emine Şerife Hanım kız KYK yurdu bulunmaktadır. Bu yurtlara becayiş yapabilirsiniz. Kampüste erkek KYK yurdu bulunmamaktadır. Özel yurt olarak Parlar Kız Öğrenci yurdu ve Atatepe Öğrenci Yurdu bulunmaktadır. Barınma olanakları hakkında detaylı bilgiye <a href='barinma.html' class='text-red-600 hover:text-red-700'>Barınma sayfasından</a>, çevredeki kyk yurtlarına ise <a href='cevredeki-kyklar.html' class='text-red-600 hover:text-red-700'>çevredeki KYK'lar</a> sayfasından bakabilirsiniz."
             },
             {
                 question: "Online kayıt yeterli mi, ayrıca yüz yüze işlem yapmam gerekiyor mu?",
@@ -111,9 +145,8 @@
             },
             {
                 question: "Ders seçimi ne zaman ve nasıl yapılacak?",
-                answer: 'Ders seçimi tarihleri akademik takvimde belirtilmiştir. Kesin tarih ve detaylar için <a href="akademik-takvim.html" class="underline text-blue-600 hover:text-blue-800">buraya tıklayınız</a>.'
+                answer: 'Ders seçimi tarihleri akademik takvimde belirtilmiştir. Kesin tarih ve detaylar için <a href="akademik-takvim.html" class="text-red-600 hover:text-red-700">buraya tıklayınız</a>.'
             }
-            // Buraya yeni sorular ve cevaplar ekleyebilirsiniz
         ];
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -121,14 +154,14 @@
 
             faqData.forEach((item, index) => {
                 const faqItem = `
-                    <div class="bg-white rounded-lg shadow-md">
-                        <button onclick="toggleNews('news${index + 1}')" class="w-full text-left px-6 py-4 font-bold text-lg text-red-800 hover:bg-red-50 focus:outline-none flex justify-between items-center">
+                    <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+                        <button onclick="toggleNews('news${index + 1}')" class="w-full text-left px-6 py-4 font-semibold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center">
                             <span>${item.question}</span>
-                            <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div id="news${index + 1}" class="news-content px-6 py-4 bg-red-50">
+                        <div id="news${index + 1}" class="news-content px-6 py-4 text-gray-600 border-t border-gray-100">
                             <p>${item.answer}</p>
                         </div>
                     </div>
