@@ -3,63 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sıkça Sorulan Sorular - Hacettepe Üniversitesi</title>
+    <title>Sıkça Sorulan Sorular - Hacettepe Üniversitesi | Öğrenci Rehberi</title>
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
     <meta name="robots" content="index, follow">
-    <meta name="description" content="Hacettepe Üniversitesi öğrencilerinin sıkça sorduğu sorular ve cevapları.">
+    <meta name="description" content="Hacettepe Üniversitesi öğrencilerinin sıkça sorduğu sorular ve cevapları. Oryantasyon, kayıt işlemleri, hazırlık sınıfı, barınma, KYK yurtları ve daha fazlası hakkında bilgiler.">
+    <meta name="keywords" content="Hacettepe Üniversitesi SSS, Hacettepe Üniversitesi sorular, Hacettepe Üniversitesi oryantasyon, Hacettepe Üniversitesi kayıt, Hacettepe Üniversitesi hazırlık, Hacettepe Üniversitesi barınma, Hacettepe Üniversitesi KYK">
+    <meta property="og:title" content="Sıkça Sorulan Sorular - Hacettepe Üniversitesi">
+    <meta property="og:description" content="Hacettepe Üniversitesi öğrencilerinin sıkça sorduğu sorular ve cevapları.">
+    <meta property="og:url" content="https://hacettepebilgi.github.io/page/sss.html">
+    <link rel="canonical" href="https://hacettepebilgi.github.io/page/sss.html" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            background-image: 
+                radial-gradient(circle at 25px 25px, rgba(239, 68, 68, 0.05) 2%, transparent 0%),
+                radial-gradient(circle at 75px 75px, rgba(239, 68, 68, 0.05) 2%, transparent 0%);
+            background-size: 100px 100px;
         }
         .news-content {
             display: none;
+            transition: all 0.3s ease-in-out;
+        }
+        .news-content.active {
+            display: block;
+        }
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            padding: 8px;
+            background: #fff;
+            border: 2px solid #ef4444;
+            color: #ef4444;
+            transition: top 0.3s ease;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .faq-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+        
+        .faq-button {
+            transition: all 0.2s ease;
+        }
+        
+        .faq-button:hover {
+            background-color: #FEF2F2;
+        }
+        
+        .faq-content {
+            transition: all 0.3s ease;
+        }
+        
+        .header-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
+        }
+        
+        .search-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-box {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            border: 2px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus-within {
+            border-color: #ef4444;
+            box-shadow: 0 10px 30px -5px rgba(239, 68, 68, 0.15);
+        }
+        
+        .search-icon {
+            color: #ef4444;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        
+        .search-input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            font-size: 18px;
+            color: #1f2937;
+            font-weight: 500;
+        }
+        
+        .search-input:focus {
+            outline: none;
+        }
+        
+        .search-input::placeholder {
+            color: #9ca3af;
+            font-weight: 400;
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
+    <a href="#main-content" class="skip-link">Ana içeriğe git</a>
+
     <div class="min-h-screen flex flex-col">
-        <!-- Navigation -->
-        <nav class="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50">
-            <div class="container mx-auto px-4">
-                <div class="flex justify-between items-center h-16">
-                    <a href="../index.html" class="flex items-center space-x-4">
-                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Navbar -->
+        <div id="app" class="min-h-screen flex flex-col">
+            <nav class="navbar sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 shadow-sm" role="navigation" aria-label="Ana menü">
+                <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center h-16">
+                        <a href="index.html" class="flex items-center space-x-4 group" aria-label="Ana sayfaya dön">
+                            <svg class="w-6 h-6 text-red-600 transition-transform group-hover:rotate-12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="text-gray-900 font-medium">Hacettepe Bilgilendirme</span>
+                        </a>
+                        <div class="flex space-x-4">
+                            <a href="../index.html" class="text-gray-600 hover:text-red-600 px-3 py-2 rounded-md text-sm transition-colors">Ana Sayfa</a>
+                    </div>
+                </div>
+            </nav>
+
+        <!-- Header -->
+        <header class="header-gradient border-b border-gray-100">
+            <div class="container mx-auto px-4 py-16">
+                <h1 class="text-4xl font-bold text-gray-900 text-center mb-4">Sıkça Sorulan Sorular</h1>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto">Hacettepe Üniversitesi öğrencileri için kapsamlı bilgilendirme platformu. Kayıt işlemleri, barınma olanakları, akademik takvim ve daha fazlası.</p>
+            </div>
+        </header>
+
+        <main id="main-content" class="flex-grow container mx-auto px-4 py-8" role="main">
+            <div class="mb-12">
+                <div class="search-wrapper">
+                    <div class="search-box">
+                        <svg class="search-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
-                        <span class="text-gray-900 font-medium">Hacettepe Bilgilendirme</span>
-                    </a>
-                    <div class="flex space-x-4">
-                        <a href="../index.html" class="text-gray-600 hover:text-red-600 px-3 py-2 rounded-md text-sm transition-colors">Ana Sayfa</a>
-                        <a href="../hakkinda.html" class="text-gray-600 hover:text-red-600 px-3 py-2 rounded-md text-sm transition-colors">Hakkında</a>
+                        <input type="search" 
+                               id="faq-search"
+                               placeholder="Hacettepe Üniversitesi hakkında soru ara..." 
+                               class="search-input"
+                               aria-label="SSS içinde arama yap">
                     </div>
                 </div>
             </div>
-        </nav>
 
-        <!-- Header -->
-        <div class="bg-white border-b border-gray-100">
-            <div class="container mx-auto px-4 py-16">
-                <h1 class="text-4xl font-bold text-gray-900 text-center mb-4">Sıkça Sorulan Sorular</h1>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto">Bu sayfada öğrencilerin sıkça sordukları soruların cevaplarını bulabilirsiniz.</p>
-            </div>
-        </div>
-
-        <main class="flex-grow container mx-auto px-4 py-8">
-            <div class="max-w-3xl mx-auto space-y-4" id="faq-container">
+            <div class="max-w-3xl mx-auto space-y-4" id="faq-container" role="list">
             </div>
         </main>
 
         <!-- Footer -->
-        <footer class="bg-white border-t border-gray-100 py-8 mt-12">
+        <footer class="bg-white border-t border-gray-100 py-8 mt-12" role="contentinfo">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <div class="flex items-center space-x-4">
-                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -149,40 +267,51 @@
             }
         ];
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const faqContainer = document.getElementById('faq-container');
+        const faqContainer = document.getElementById('faq-container');
+        const searchInput = document.getElementById('faq-search');
 
-            faqData.forEach((item, index) => {
-                const faqItem = `
-                    <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
-                        <button onclick="toggleNews('news${index + 1}')" class="w-full text-left px-6 py-4 font-semibold text-gray-900 hover:bg-gray-50 focus:outline-none flex justify-between items-center">
-                            <span>${item.question}</span>
-                            <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div id="news${index + 1}" class="news-content px-6 py-4 text-gray-600 border-t border-gray-100">
-                            <p>${item.answer}</p>
-                        </div>
+        function renderFAQs(faqs) {
+            faqContainer.innerHTML = '';
+            faqs.forEach(faq => {
+                const faqElement = document.createElement('div');
+                faqElement.className = 'faq-card bg-white rounded-lg border border-gray-100 p-6';
+                faqElement.innerHTML = `
+                    <button class="faq-button w-full text-left flex justify-between items-center" aria-expanded="false">
+                        <span class="text-lg font-medium text-gray-900">${faq.question}</span>
+                        <svg class="w-5 h-5 text-gray-500 transform transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="faq-content mt-4 text-gray-600 hidden">
+                        ${faq.answer}
                     </div>
                 `;
-                faqContainer.innerHTML += faqItem;
+
+                const button = faqElement.querySelector('button');
+                const content = faqElement.querySelector('.faq-content');
+                const icon = faqElement.querySelector('svg');
+
+                button.addEventListener('click', () => {
+                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                    button.setAttribute('aria-expanded', !isExpanded);
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+
+                faqContainer.appendChild(faqElement);
             });
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredFAQs = faqData.filter(faq => 
+                faq.question.toLowerCase().includes(searchTerm) || 
+                faq.answer.toLowerCase().includes(searchTerm)
+            );
+            renderFAQs(filteredFAQs);
         });
 
-        function toggleNews(id) {
-            const content = document.getElementById(id);
-            const button = content.previousElementSibling;
-            const icon = button.querySelector('svg');
-            
-            if (content.style.display === "block") {
-                content.style.display = "none";
-                icon.classList.remove('rotate-180');
-            } else {
-                content.style.display = "block";
-                icon.classList.add('rotate-180');
-            }
-        }
+        renderFAQs(faqData);
     </script>
 </body>
 </html>

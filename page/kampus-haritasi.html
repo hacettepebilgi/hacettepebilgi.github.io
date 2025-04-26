@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Hacettepe Üniversitesi Kampüs Haritası | Beytepe ve Sıhhiye Kampüsleri</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+    <meta name="description" content="Hacettepe Üniversitesi Beytepe ve Sıhhiye kampüslerinin interaktif haritası. Fakülteler, yurtlar, kütüphane, yemekhane ve diğer önemli noktaların konumları.">
+    <meta name="keywords" content="hacettepe kampüs haritası, beytepe kampüsü, sıhhiye kampüsü, hacettepe fakülteler, beytepe kyk, hacettepe yurt, hacettepe barınma, hacettepe kütüphane">
+    <meta property="og:title" content="Hacettepe Üniversitesi Kampüs Haritası">
+    <meta property="og:description" content="Hacettepe Üniversitesi Beytepe ve Sıhhiye kampüslerinin interaktif haritası. Tüm önemli noktaların konumlarını keşfedin.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hacettepebilgi.github.io/page/kampus-haritasi.html">
+    <link rel="canonical" href="https://hacettepebilgi.github.io/page/kampus-haritasi.html">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Hacettepe Bilgi">
+    <meta name="language" content="Turkish">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Hacettepe Üniversitesi Kampüs Haritası",
+        "description": "Hacettepe Üniversitesi Beytepe ve Sıhhiye kampüslerinin interaktif haritası",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Hacettepe.biz"
+
+        },
+        "mainEntity": {
+            "@type": "Map",
+            "name": "Hacettepe Kampüs Haritası",
+            "about": "Beytepe ve Sıhhiye Kampüsleri"
+        }
+    }
+    </script>
+
+    <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        :root {
+            --primary-color: #ef4444;
+            --primary-light: #fee2e2;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        #map {
+            height: 600px;
+            width: 100%;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        .map-container {
+            height: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .campus-button {
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-color);
+        }
+
+        .campus-button:hover, .campus-button.active {
+            background-color: var(--primary-light);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .location-button {
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .location-button:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .leaflet-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+        }
+
+        .leaflet-popup-content {
+            margin: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .leaflet-popup-content b {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div id="app" v-cloak>
+        <!-- Navbar -->
+        <div id="app" class="min-h-screen flex flex-col">
+            <nav class="navbar sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 shadow-sm" role="navigation" aria-label="Ana menü">
+                <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center h-16">
+                        <a href="index.html" class="flex items-center space-x-4 group" aria-label="Ana sayfaya dön">
+                            <svg class="w-6 h-6 text-red-600 transition-transform group-hover:rotate-12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="text-gray-900 font-medium">Hacettepe Bilgilendirme</span>
+                        </a>
+                        <div class="flex space-x-4">
+                            <a href="../index.html" class="text-gray-600 hover:text-red-600 px-3 py-2 rounded-md text-sm transition-colors">Ana Sayfa</a>
+                    </div>
+                </div>
+            </nav>
+
+        <main class="container mx-auto px-4 py-8">
+            <h1 class="text-3xl font-bold text-center mb-8">Kampüs Haritası</h1>
+            
+            <div class="flex justify-center space-x-4 mb-6">
+                <button 
+                    v-for="campus in campuses" 
+                    :key="campus.id"
+                    @click="selectCampus(campus)"
+                    :class="['campus-button px-6 py-3 rounded-lg font-medium bg-white', 
+                            {'active': selectedCampus && selectedCampus.id === campus.id}]">
+                    {{ campus.name }}
+                </button>
+            </div>
+
+            <div class="flex gap-6">
+                <!-- Önemli Noktalar (Sol Taraf) -->
+                <div class="w-1/4" v-if="selectedCampus">
+                    <h2 class="text-xl font-semibold mb-4">Önemli Noktalar</h2>
+                    <div class="flex flex-col gap-2">
+                        <button 
+                            v-for="location in selectedCampus.locations" 
+                            :key="location.name"
+                            @click="showLocation(location)"
+                            class="location-button p-3 rounded-lg text-left bg-white">
+                            <h3 class="font-medium mb-1">{{ location.name }}</h3>
+                            <p class="text-sm text-gray-600">{{ location.description }}</p>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Harita (Sağ Taraf) -->
+                <div class="flex-1">
+                    <div class="map-container">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-100 py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-gray-600 text-sm">Hacettepe Bilgilendirme</span>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="https://akiner.net" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Akıner Kısa</a>
+                        <a href="../hakkinda.html" class="text-gray-600 hover:text-red-600 text-sm transition-colors">Site Hakkında</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    map: null,
+                    selectedCampus: null,
+                    campuses: [
+                        {
+                            id: 'beytepe',
+                            name: 'Beytepe Kampüsü',
+                            center: [39.868800, 32.742500],
+                            zoom: 15,
+                            locations: [
+                                {
+                                    name: 'Beytepe Stadyumu',
+                                    description: 'Beytepe Stadyumu',
+                                    coordinates: [39.871899, 32.732458]
+                                },
+                                {
+                                    name: 'Amfi Tiyatro',
+                                    description: 'Açık Hava Tiyatrosu',
+                                    coordinates: [39.874222, 32.728623]
+                                },
+                                {
+                                    name: 'Rektörlük',
+                                    description: 'Rektörlük Binası',
+                                    coordinates: [39.867541, 32.734693]
+                                }
+                            ]
+                        },
+                        {
+                            id: 'sihhiye',
+                            name: 'Sıhhiye Kampüsü',
+                            center: [39.931360, 32.863921],
+                            zoom: 17,
+                            locations: [
+                                {
+                                    name: 'Tıp Fakültesi',
+                                    description: 'Tıp Fakültesi Ana Binası',
+                                    coordinates: [39.931670, 32.864321]
+                                },
+                                {
+                                    name: 'Diş Hekimliği Fakültesi',
+                                    description: 'Diş Hekimliği Fakültesi Binası',
+                                    coordinates: [39.932037, 32.864914]
+                                },
+                                {
+                                    name: 'Öğrenci Yurtları',
+                                    description: 'Öğrenci Yurtları',
+                                    coordinates: [39.931487, 32.867846]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            methods: {
+                async initMap() {
+                    if (this.map) return;
+
+                    await this.$nextTick();
+                    const mapElement = document.getElementById('map');
+                    if (!mapElement) return;
+
+                    this.map = L.map('map', {
+                        center: [39.864800, 32.734500],
+                        zoom: 15,
+                        minZoom: 14,
+                        maxZoom: 19
+                    });
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors',
+                        maxZoom: 19
+                    }).addTo(this.map);
+
+                    if (this.campuses.length > 0) {
+                        this.selectCampus(this.campuses[0]);
+                    }
+                },
+                selectCampus(campus) {
+                    if (!campus || !this.map) return;
+                    
+                    this.selectedCampus = campus;
+                    this.map.setView(campus.center, campus.zoom);
+                },
+                showLocation(location) {
+                    if (!location || !this.map) return;
+                    this.map.setView(location.coordinates, 18);
+                }
+            },
+            mounted() {
+                this.initMap();
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html> 
