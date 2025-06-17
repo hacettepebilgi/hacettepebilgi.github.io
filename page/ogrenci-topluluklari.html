@@ -67,10 +67,13 @@
                 <div v-for="club in clubs" :key="club.name" 
                      class="bg-white rounded-xl border border-gray-100 p-6 card-hover">
                     <div class="flex items-start space-x-4">
-                        <div class="bg-red-50 rounded-lg p-2 mt-1">
-                            <svg class="w-6 h-6 text-red-600" viewBox="0 0 24 24" fill="none">
-                                <path d="M17 20H7C5.89543 20 5 19.1046 5 18V7C5 5.89543 5.89543 5 7 5H17C18.1046 5 19 5.89543 19 7V18C19 19.1046 18.1046 20 17 20ZM7 7V18H17V7H7ZM15 16H9V14H15V16ZM15 12H9V10H15V12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                        <div class="flex-shrink-0">
+                            <img v-if="club.logo" :src="club.logo" :alt="club.name + ' logosu'" class="w-16 h-16 object-contain">
+                            <div v-else class="bg-red-50 rounded-lg p-2 w-16 h-16 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17 20H7C5.89543 20 5 19.1046 5 18V7C5 5.89543 5.89543 5 7 5H17C18.1046 5 19 5.89543 19 7V18C19 19.1046 18.1046 20 17 20ZM7 7V18H17V7H7ZM15 16H9V14H15V16ZM15 12H9V10H15V12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
                         </div>
                         <div class="flex-1">
                             <h2 class="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-2">{{ club.name }}</h2>
@@ -129,49 +132,92 @@
                             name: 'Bilgilendirme',
                             description: 'Buradan topluluğunuzu kaldırmak yada topluluğunuzu eklemek istiyorsanız github üzerinden pr request açabilir veya bana yazabilirsiniz.',
                             website: 'https://github.com/hacettepebilgi/hacettepebilgi.github.io',
-                            instagram: 'https://www.instagram.com/akiner1337/'
+                            instagram: 'https://www.instagram.com/akiner1337/',
+                            logo: '../assets/img/favicon.png'
                         },
                         {
                             name: 'ACM Hacettepe',
-                            description: 'ACM Hacettepe Topluluğu',
+                            description: 'ACM(Association For Computing Machinery) Hacettepe Topluluğu',
                             website: 'https://acmhacettepe.com',
-                            instagram: 'https://www.instagram.com/acmhacettepe/'
+                            instagram: 'https://www.instagram.com/acmhacettepe/',
+                            logo: '../assets/topluluklar/acm.png'
                         },
                         {
-                            name: 'GMT Hacettepe',
-                            description: 'Hacettepe Genç Mühendisler Topluluğu.',
+                            name: 'Genç Mühendisler Topluluğu',
+                            description: 'Hacettepe Genç Mühendisler Topluluğu(GMT).',
                             website: 'https://linktr.ee/hacettepegmt',
-                            instagram: 'https://www.instagram.com/gmthacettepe/'
+                            instagram: 'https://www.instagram.com/gmthacettepe/',
+                            logo: '../assets/topluluklar/gmt.png'
                         },
                         {
-                            name: 'HEK',
-                            description: 'Hacettepe Ekonomi Topluluğu.',
+                            name: 'Hacettepe Ekonomi Topluluğu',
+                            description: 'Hacettepe Ekonomi Topluluğu(HEK).',
                             website: 'https://linktr.ee/hekweb',
-                            instagram: 'https://www.instagram.com/hek.web/'
+                            instagram: 'https://www.instagram.com/hek.web/',
+                            logo: '../assets/topluluklar/hek.png'
                         },
                         {
-                            name: 'HENDS',
-                            description: 'Hacettepe Endüstri Topluluğu.',
+                            name: 'Hacettepe Endüstri Topluluğu',
+                            description: 'Hacettepe Endüstri Topluluğu(HENDS).',
                             website: '#',
-                            instagram: 'https://www.instagram.com/hendshacettepe/'
+                            instagram: 'https://www.instagram.com/hendshacettepe/',
+                            logo: '../assets/topluluklar/hends.png'
                         },
                         {
-                            name: 'HİT',
-                            description: 'Hacettepe İşletme Topluluğu.',
+                            name: 'Hacettepe İşletme Topluluğu',
+                            description: 'Hacettepe İşletme Topluluğu(HİT).',
                             website: 'https://linktr.ee/hacettepehityt',
-                            instagram: 'https://www.instagram.com/hacettepehit/'
+                            instagram: 'https://www.instagram.com/hacettepehit/',
+                            logo: '../assets/topluluklar/hit.png'
                         },
                         {
                             name: 'Hacettepe Kültür Sanat Topluluğu',
                             description: 'Hacettepe Kültür Sanat Topluluğu.',
                             website: 'https://linktr.ee/hukultursanat',
-                            instagram: 'https://www.instagram.com/hukultursanat/'
+                            instagram: 'https://www.instagram.com/hukultursanat/',
+                            logo: '../assets/topluluklar/hukultursanat.png'
                         },
                         {
                             name: 'Hacettepe Otomotiv Topluluğu',
                             description: 'Hacettepe Otomotiv Topluluğu.',
                             website: '#',
-                            instagram: 'https://www.instagram.com/otomotivtoplulugu/'
+                            instagram: 'https://www.instagram.com/otomotivtoplulugu/',
+                            logo: '../assets/topluluklar/otomotiv.png'
+                        },
+                        {
+                            name: 'IEEE Hacettepe',
+                            description: 'IEEE (Institute of Electrical and Electronics Engineers) Hacettepe Topluluğu.',
+                            website: 'https://www.ieeehacettepe.com/',
+                            instagram: 'https://www.instagram.com/ieeehacettepe/',
+                            logo: '../assets/topluluklar/ieee.png'
+                        },
+                        {
+                            name: 'Hacettepe Girişim ve Yatırım Topluluğu',
+                            description: 'Hacettepe GİYAT(Girişim ve Yatırım Topluluğu) Topluluğu.',
+                            website: 'http://www.hacettepegiyat.com/',
+                            instagram: 'https://www.instagram.com/hacettepegiyat/',
+                            logo: '../assets/topluluklar/giyat.png'
+                        },
+                        {
+                            name: 'Hacettepe İnsansız Hava Araçları Topluluğu',
+                            description: 'Hacettepe İHA(İnsansız Hava Araçları) Topluluğu.',
+                            website: '#',
+                            instagram: 'https://www.instagram.com/iha.hacettepe/',
+                            logo: '../assets/topluluklar/iha.png'
+                        },
+                        {
+                            name: 'Hacettepe Yapay Zeka Topluluğu',
+                            description: 'Hacettepe Yapay Zeka Topluluğu / Hacettepe AI Club.',
+                            website: 'https://www.hacettepeaiclub.com/',
+                            instagram: 'https://www.instagram.com/hacettepeaiclub/',
+                            logo: '../assets/topluluklar/ai.png'
+                        },
+                        {
+                            name: 'Hacettepe Robot Topluluğu',
+                            description: 'Hacettepe Robot Topluluğu.',
+                            website: '#',
+                            instagram: 'https://www.instagram.com/hacetteperobot/',
+                            logo: '../assets/topluluklar/robot.png'
                         }
                     ]
                 }
