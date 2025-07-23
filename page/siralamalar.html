@@ -93,7 +93,6 @@
 </head>
 <body class="bg-pattern min-h-screen">
     <div class="min-h-screen flex flex-col">
-        <!-- Navbar -->
         <nav class="navbar sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 shadow-sm" role="navigation" aria-label="Ana menü">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center h-16">
@@ -112,13 +111,17 @@
             </div>
         </nav>
 
-        <!-- Header -->
         <header class="bg-white border-b border-gray-100 py-8">
             <div class="container mx-auto px-4">
                 <h1 class="text-3xl font-bold text-gray-900 text-center">2025 Bölüm Sıralamaları</h1>
                 <p class="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
                     Hacettepe Üniversitesi'nin 2024 ve önceki yıllara ait tüm bölüm sıralamaları ve taban puanları aşağıda listelenmiştir.
                 </p>
+                <div class="mt-6 mb-2 flex justify-center">
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-md shadow-sm max-w-2xl w-full">
+                        <strong>Not:</strong> <span class="italic">Fakülte ve yüksekokulların konumlarını <a href="fakulte-yuksekokul-lokasyonlari.html" class="text-red-600 underline">Fakülte-Yüksekokul Lokasyonları</a> sayfasından görebilirsiniz.</span>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -3727,10 +3730,9 @@
                     </tbody>
                 </table>
             </div>
-            <p class="text-center text-red-700 text-sm mt-8">Kaynak: YÖK Atlas </p>
+            <p class="text-center text-red-700 text-sm mt-8">Kaynak: YÖK Atlas - Son Güncelleme 18.06.2025 / Verilerin Doğruluğu Güncel Olmayabilir Güncel Veriler İçin Mutlaka Resmi Kaynaklara Başvurunuz </p>
         </main>
 
-        <!-- Footer -->
         <footer class="bg-white border-t border-gray-100 py-8 mt-12">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -3814,7 +3816,6 @@
             }
         }
     }
-    // Sayfa yüklendiğinde Tümü butonunu aktif yap
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.puan-btn')[0].classList.add('active');
     });

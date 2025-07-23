@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacettepe Üniversitesi Fakülte ve Yüksekokul Lokasyonları, Bölümler ve Kampüsler</title>
+    <meta name="description" content="Hacettepe Üniversitesi'nin tüm fakülte ve yüksekokullarının kampüs, bölüm ve lokasyon bilgileri. Beytepe, Sıhhiye, Beşevler, Polatlı, Sincan kampüsleri ve MYO'lar hakkında detaylı bilgi, harita ve konum linkleri.">
+    <meta name="keywords" content="Hacettepe Üniversitesi, fakülte, yüksekokul, bölümler, kampüs, Beytepe, Sıhhiye, Beşevler, Polatlı, Sincan, MYO, harita, konum, üniversite tercih, hacettepe bölümler, hacettepe fakülteler, hacettepe myo, hacettepe kampüsler">
+    <link rel="canonical" href="https://hacettepebilgi.github.io/page/fakulte-yuksekokul-lokasyonlari.html">
+    <meta property="og:title" content="Hacettepe Üniversitesi Fakülte ve Yüksekokul Lokasyonları">
+    <meta property="og:description" content="Hacettepe Üniversitesi'nin tüm fakülte ve yüksekokullarının kampüs, bölüm ve lokasyon bilgileri. Harita ve konum linkleriyle detaylı bilgi.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hacettepebilgi.github.io/page/fakulte-yuksekokul-lokasyonlari.html">
+    <meta property="og:image" content="https://hacettepebilgi.github.io/assets/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hacettepe Üniversitesi Fakülte ve Yüksekokul Lokasyonları">
+    <meta name="twitter:description" content="Hacettepe Üniversitesi'nin tüm fakülte ve yüksekokullarının kampüs, bölüm ve lokasyon bilgileri. Harita ve konum linkleriyle detaylı bilgi.">
+    <meta name="twitter:image" content="https://hacettepebilgi.github.io/assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .bg-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#ff000008 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .kampus-baslik {
+            color: #b91c1c;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+        .fakulte-card {
+            background: #fff;
+            border: 1px solid #f3f4f6;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px 0 rgba(239,68,68,0.07);
+            margin-bottom: 2rem;
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .fakulte-card:hover {
+            box-shadow: 0 8px 32px 0 rgba(239,68,68,0.13);
+            transform: translateY(-2px) scale(1.01);
+        }
+        .fakulte-title {
+            color: #991b1b;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.2px;
+        }
+        .bolum-badge {
+            color: #374151;
+            font-weight: 500;
+            background: #f3f4f6;
+            border-radius: 6px;
+            padding: 4px 10px;
+            margin: 0 8px 8px 0;
+            display: inline-block;
+            font-size: 1rem;
+        }
+        .myo-card {
+            background: #fff;
+            border: 1px solid #f3f4f6;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px 0 rgba(239,68,68,0.07);
+            margin-bottom: 2rem;
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .myo-card:hover {
+            box-shadow: 0 8px 32px 0 rgba(239,68,68,0.13);
+            transform: translateY(-2px) scale(1.01);
+        }
+        .myo-title {
+            color: #a21caf;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.2px;
+        }
+        .myo-bolum {
+            color: #374151;
+            font-weight: 500;
+            background: #f3f4f6;
+            border-radius: 6px;
+            padding: 4px 10px;
+            margin: 0 8px 8px 0;
+            display: inline-block;
+            font-size: 1rem;
+        }
+        .search-box {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px 0 rgba(239,68,68,0.04);
+            padding: 12px 20px;
+            margin: 0 auto 2.5rem auto;
+            max-width: 480px;
+            display: flex;
+            align-items: center;
+        }
+        .search-input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            font-size: 1.1rem;
+            color: #374151;
+            font-weight: 500;
+            outline: none;
+        }
+        .search-icon {
+            color: #ef4444;
+            margin-right: 12px;
+        }
+        @media (max-width: 640px) {
+            .myo-card, .fakulte-card { padding: 1rem; }
+        }
+    </style>
+</head>
+<body class="bg-pattern min-h-screen">
+    <div class="min-h-screen flex flex-col">
+        <nav class="navbar sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 shadow-sm" role="navigation" aria-label="Ana menü">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center h-16">
+                    <a href="../index.html" class="flex items-center space-x-4 group" aria-label="Ana sayfaya dön">
+                        <svg class="w-6 h-6 text-red-600 transition-transform group-hover:rotate-12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-gray-900 font-medium">Hacettepe Bilgilendirme</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <header class="bg-white border-b border-gray-100 py-8">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl font-bold text-gray-900 text-center">Fakülte ve Yüksekokul Lokasyonları</h1>
+                <p class="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
+                    Bu sayfada Hacettepe Üniversitesi'ndeki tüm fakülte ve yüksekokulların hangi kampüste ve hangi bölümlerle yer aldığını görebilirsiniz. Bilgiler <strong>YÖK Atlas ve Hacettepe.edu.tr</strong> üzerinden derlenmiştir.
+                </p>
+                <div class="search-box mt-8">
+                    <svg class="search-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <input type="search" id="aramaKutusu" class="search-input" placeholder="Fakülte, yüksekokul veya bölüm ara..." onkeyup="filtrele()">
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow container mx-auto px-4 py-8" id="lokasyonlar">
+            <div id="fakulteListesi">
+                <div class="mb-6">
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-md shadow-sm">
+                        <strong>Not:</strong> <span class="italic">Bölümlerin sıralama bilgisi için <a href="siralamalar.html" class="text-red-600 underline">Sıralamalar</a> sayfasını kontrol ediniz.</span>
+                    </div>
+                </div>
+                <div class="kampus-baslik flex items-center gap-2">Beytepe Kampüsü (Ana Kampüs)
+                    <a href="kampus-haritasi.html#beytepe" class="text-red-600 underline text-sm ml-2" target="_blank">Kampüs Haritası</a>
+                </div>
+                <div class="text-gray-500 text-sm mb-4">Kampüs notu: <span class="italic">Beytepe Kampüsü Hacettepe Üniversitesi'nin ana kampüsüdür. <a href="kampus-olanaklari.html" class="text-red-600 underline">Kampüs Olanakları</a> sayfasından kampüs ile ilgili bilgileri görebilirsiniz.</span></div>
+                <div class="fakulte-card" data-search="Mühendislik Fakültesi Bilgisayar Mühendisliği (İngilizce) (4 Yıllık) Yapay Zeka Mühendisliği (İngilizce) (4 Yıllık) Elektrik-Elektronik Mühendisliği (İngilizce) (4 Yıllık) Endüstri Mühendisliği (İngilizce) (4 Yıllık) Makine Mühendisliği (İngilizce) (4 Yıllık) Kimya Mühendisliği (İngilizce) (4 Yıllık) Nükleer Enerji Mühendisliği (İngilizce) (4 Yıllık) Gıda Mühendisliği (4 Yıllık) Çevre Mühendisliği (İngilizce) (4 Yıllık) İnşaat Mühendisliği (İngilizce) (4 Yıllık) Fizik Mühendisliği (4 Yıllık) Maden Mühendisliği (İngilizce) (4 Yıllık) Yapay Zeka Mühendisliği (İngilizce) (KKTC Uyruklu) (4 Yıllık) Harita Mühendisliği (İngilizce) (4 Yıllık) Jeoloji Mühendisliği (4 Yıllık) Hidrojeoloji Mühendisliği (4 Yıllık) Hidrojeoloji Mühendisliği (KKTC UYRUKLU) (4 Yıllık)">
+                    <div class="fakulte-title">Mühendislik Fakültesi</div>
+                    <div class="bolum-badge">Bilgisayar Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Yapay Zeka Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Elektrik-Elektronik Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Endüstri Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Makine Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Kimya Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Nükleer Enerji Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Gıda Mühendisliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Çevre Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">İnşaat Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Fizik Mühendisliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Maden Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Yapay Zeka Mühendisliği (İngilizce) (KKTC Uyruklu) (4 Yıllık)</div>
+                    <div class="bolum-badge">Harita Mühendisliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Jeoloji Mühendisliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Hidrojeoloji Mühendisliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Hidrojeoloji Mühendisliği (KKTC UYRUKLU) (4 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="Fen Fakültesi İstatistik (4 Yıllık) Matematik (4 Yıllık) Kimya (4 Yıllık) Biyoloji (4 Yıllık) Aktüerya Bilimleri (4 Yıllık)">
+                    <div class="fakulte-title">Fen Fakültesi</div>
+                    <div class="bolum-badge">İstatistik (4 Yıllık)</div>
+                    <div class="bolum-badge">Matematik (4 Yıllık)</div>
+                    <div class="bolum-badge">Kimya (4 Yıllık)</div>
+                    <div class="bolum-badge">Biyoloji (4 Yıllık)</div>
+                    <div class="bolum-badge">Aktüerya Bilimleri (4 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="Edebiyat Fakültesi Psikoloji (4 Yıllık) Sosyoloji (4 Yıllık) Felsefe (4 Yıllık) Bilgi ve Belge Yönetimi (4 Yıllık) Arkeoloji (4 Yıllık) Antropoloji (4 Yıllık) Türk Dili ve Edebiyatı (4 Yıllık) Sanat Tarihi (4 Yıllık) Çağdaş Türk Lehçeleri ve Edebiyatları (4 Yıllık) Türk Halkbilimi (4 Yıllık) İngilizce Mütercim ve Tercümanlık (4 Yıllık) İngilizce Öğretmenliği (İngilizce) (4 Yıllık) İngiliz Dili ve Edebiyatı (İngilizce) (4 Yıllık) İngiliz Dilbilimi (İngilizce) (4 Yıllık) Amerikan Kültürü ve Edebiyatı (İngilizce) (4 Yıllık) Fransızca Mütercim ve Tercümanlık (4 Yıllık) Almanca Mütercim ve Tercümanlık (4 Yıllık) Fransız Dili ve Edebiyatı (4 Yıllık) Alman Dili ve Edebiyatı (4 Yıllık) Fransızca Öğretmenliği (4 Yıllık) Almanca Öğretmenliği (Almanca) (4 Yıllık)">
+                    <div class="fakulte-title">Edebiyat Fakültesi</div>
+                    <div class="bolum-badge">Psikoloji (4 Yıllık)</div>
+                    <div class="bolum-badge">Sosyoloji (4 Yıllık)</div>
+                    <div class="bolum-badge">Felsefe (4 Yıllık)</div>
+                    <div class="bolum-badge">Bilgi ve Belge Yönetimi (4 Yıllık)</div>
+                    <div class="bolum-badge">Arkeoloji (4 Yıllık)</div>
+                    <div class="bolum-badge">Antropoloji (4 Yıllık)</div>
+                    <div class="bolum-badge">Türk Dili ve Edebiyatı (4 Yıllık)</div>
+                    <div class="bolum-badge">Sanat Tarihi (4 Yıllık)</div>
+                    <div class="bolum-badge">Çağdaş Türk Lehçeleri ve Edebiyatları (4 Yıllık)</div>
+                    <div class="bolum-badge">Türk Halkbilimi (4 Yıllık)</div>
+                    <div class="bolum-badge">İngilizce Mütercim ve Tercümanlık (4 Yıllık)</div>
+                    <div class="bolum-badge">İngilizce Öğretmenliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">İngiliz Dili ve Edebiyatı (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">İngiliz Dilbilimi (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Amerikan Kültürü ve Edebiyatı (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Fransızca Mütercim ve Tercümanlık (4 Yıllık)</div>
+                    <div class="bolum-badge">Almanca Mütercim ve Tercümanlık (4 Yıllık)</div>
+                    <div class="bolum-badge">Fransız Dili ve Edebiyatı (4 Yıllık)</div>
+                    <div class="bolum-badge">Alman Dili ve Edebiyatı (4 Yıllık)</div>
+                    <div class="bolum-badge">Fransızca Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Almanca Öğretmenliği (Almanca) (4 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="Eğitim Fakültesi Matematik Öğretmenliği (4 Yıllık) İlköğretim Matematik Öğretmenliği (4 Yıllık) Kimya Öğretmenliği (4 Yıllık) Biyoloji Öğretmenliği (4 Yıllık) Fizik Öğretmenliği (4 Yıllık) Fen Bilgisi Öğretmenliği (4 Yıllık) Bilgisayar ve Öğretim Teknolojileri Öğretmenliği (4 Yıllık) Rehberlik ve Psikolojik Danışmanlık (4 Yıllık) Sınıf Öğretmenliği (4 Yıllık) Okul Öncesi Öğretmenliği (4 Yıllık) Özel Eğitim Öğretmenliği (4 Yıllık) Türkçe Öğretmenliği (4 Yıllık) İngilizce Öğretmenliği (İngilizce) (4 Yıllık) Sınıf Öğretmenliği (KKTC UYRUKLU) (4 Yıllık)">
+                    <div class="fakulte-title">Eğitim Fakültesi</div>
+                    <div class="bolum-badge">Matematik Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">İlköğretim Matematik Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Kimya Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Biyoloji Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Fizik Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Fen Bilgisi Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Bilgisayar ve Öğretim Teknolojileri Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Rehberlik ve Psikolojik Danışmanlık (4 Yıllık)</div>
+                    <div class="bolum-badge">Sınıf Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Okul Öncesi Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Özel Eğitim Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">Türkçe Öğretmenliği (4 Yıllık)</div>
+                    <div class="bolum-badge">İngilizce Öğretmenliği (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Sınıf Öğretmenliği (KKTC UYRUKLU) (4 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="İktisadi ve İdari Bilimler Fakültesi İşletme (İngilizce) (4 Yıllık) İktisat (İngilizce) (4 Yıllık) Uluslararası İlişkiler (İngilizce) (4 Yıllık) İktisat (4 Yıllık) Siyaset Bilimi ve Kamu Yönetimi (İngilizce) (4 Yıllık) Maliye (4 Yıllık) Sosyal Hizmet (Fakülte) (4 Yıllık) Sağlık Yönetimi (Fakülte) (4 Yıllık) Aile ve Tüketici Bilimleri (4 Yıllık)">
+                    <div class="fakulte-title">İktisadi ve İdari Bilimler Fakültesi</div>
+                    <div class="bolum-badge">İşletme (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">İktisat (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Uluslararası İlişkiler (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">İktisat (4 Yıllık)</div>
+                    <div class="bolum-badge">Siyaset Bilimi ve Kamu Yönetimi (İngilizce) (4 Yıllık)</div>
+                    <div class="bolum-badge">Maliye (4 Yıllık)</div>
+                    <div class="bolum-badge">Sosyal Hizmet (Fakülte) (4 Yıllık)</div>
+                    <div class="bolum-badge">Sağlık Yönetimi (Fakülte) (4 Yıllık)</div>
+                    <div class="bolum-badge">Aile ve Tüketici Bilimleri (4 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="Güzel Sanatlar Fakültesi İç Mimarlık ve Çevre Tasarımı (4 Yıllık)">
+                    <div class="fakulte-title">Güzel Sanatlar Fakültesi</div>
+                    <div class="bolum-badge">İç Mimarlık ve Çevre Tasarımı (4 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="Hukuk Fakültesi Hukuk (4 Yıllık)">
+                    <div class="fakulte-title">Hukuk Fakültesi</div>
+                    <div class="bolum-badge">Hukuk (4 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="İletişim Fakültesi İletişim Bilimleri (4 Yıllık)">
+                    <div class="fakulte-title">İletişim Fakültesi</div>
+                    <div class="bolum-badge">İletişim Bilimleri (4 Yıllık)</div>
+                </div>
+                <div class="kampus-baslik flex items-center gap-2">Sıhhiye Kampüsü
+                    <a href="kampus-haritasi.html#sihhiye" class="text-red-600 underline text-sm ml-2" target="_blank">Kampüs Haritası</a>
+                </div>
+                <div class="text-gray-500 text-sm mb-4">Kampüs notu: <span class="italic">Sıhhiye Kampüsü Hacettepe Üniversitesi'nin ikinci kampüsüdür. <a href="kampus-olanaklari.html" class="text-red-600 underline">Kampüs Olanakları</a> sayfasından kampüs ile ilgili bilgileri görebilirsiniz.</span></div>
+                <div class="fakulte-card" data-search="Tıp Fakültesi Tıp (İngilizce) (6 Yıllık) Tıp (6 Yıllık) Tıp (İngilizce) (KKTC Uyruklu) (6 Yıllık)">
+                    <div class="fakulte-title">Tıp Fakültesi</div>
+                    <div class="bolum-badge">Tıp (İngilizce) (6 Yıllık)</div>
+                    <div class="bolum-badge">Tıp (6 Yıllık)</div>
+                    <div class="bolum-badge">Tıp (İngilizce) (KKTC Uyruklu) (6 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="Diş Hekimliği Fakültesi Diş Hekimliği (5 Yıllık)">
+                    <div class="fakulte-title">Diş Hekimliği Fakültesi</div>
+                    <div class="bolum-badge">Diş Hekimliği (5 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="Eczacılık Fakültesi Eczacılık (5 Yıllık)">
+                    <div class="fakulte-title">Eczacılık Fakültesi</div>
+                    <div class="bolum-badge">Eczacılık (5 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="Sağlık Bilimleri Fakültesi Dil ve Konuşma Terapisi (Fakülte) (4 Yıllık) Beslenme ve Diyetetik (Fakülte) (4 Yıllık) Ergoterapi (4 Yıllık) Ergoterapi (KKTC Uyruklu) (4 Yıllık) Çocuk Gelişimi (Fakülte) (4 Yıllık) Odyoloji (Fakülte) (4 Yıllık) Odyoloji (Fakülte) (KKTC Uyruklu) (4 Yıllık)">
+                    <div class="fakulte-title">Sağlık Bilimleri Fakültesi</div>
+                    <div class="bolum-badge">Dil ve Konuşma Terapisi (Fakülte) (4 Yıllık)</div>
+                    <div class="bolum-badge">Beslenme ve Diyetetik (Fakülte) (4 Yıllık)</div>
+                    <div class="bolum-badge">Ergoterapi (4 Yıllık)</div>
+                    <div class="bolum-badge">Ergoterapi (KKTC Uyruklu) (4 Yıllık)</div>
+                    <div class="bolum-badge">Çocuk Gelişimi (Fakülte) (4 Yıllık)</div>
+                    <div class="bolum-badge">Odyoloji (Fakülte) (4 Yıllık)</div>
+                    <div class="bolum-badge">Odyoloji (Fakülte) (KKTC Uyruklu) (4 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="Hemşirelik Fakültesi Hemşirelik (Fakülte) (4 Yıllık)">
+                    <div class="fakulte-title">Hemşirelik Fakültesi</div>
+                    <div class="bolum-badge">Hemşirelik (Fakülte) (4 Yıllık)</div>
+                </div>
+                <div class="fakulte-card" data-search="Fizik Tedavi ve Rehabilitasyon Fakültesi Fizyoterapi ve Rehabilitasyon (Fakülte) (4 Yıllık)">
+                    <div class="fakulte-title">Fizik Tedavi ve Rehabilitasyon Fakültesi</div>
+                    <div class="bolum-badge">Fizyoterapi ve Rehabilitasyon (Fakülte) (4 Yıllık)</div>
+                </div>
+                <div class="myo-card" data-search="Sağlık Hizmetleri Meslek Yüksekokulu İlk ve Acil Yardım Tıbbi Görüntüleme Teknikleri Diş Protez Teknolojisi Ağız ve Diş Sağlığı Tıbbi Laboratuvar Teknikleri Tıbbi Dokümantasyon ve Sekreterlik Ameliyathane Hizmetleri Odyometri Eczane Hizmetleri">
+                    <div class="myo-title">Hacettepe Üniversitesi Sağlık Hizmetleri Meslek Yüksekokulu</div>
+                    <div class="myo-bolum">İlk ve Acil Yardım</div>
+                    <div class="myo-bolum">Tıbbi Görüntüleme Teknikleri</div>
+                    <div class="myo-bolum">Diş Protez Teknolojisi</div>
+                    <div class="myo-bolum">Ağız ve Diş Sağlığı</div>
+                    <div class="myo-bolum">Tıbbi Laboratuvar Teknikleri</div>
+                    <div class="myo-bolum">Tıbbi Dokümantasyon ve Sekreterlik</div>
+                    <div class="myo-bolum">Ameliyathane Hizmetleri</div>
+                    <div class="myo-bolum">Odyometri</div>
+                    <div class="myo-bolum">Eczane Hizmetleri</div>
+                    <div class="text-gray-400 text-xs mt-2">Konum: <a href="kampus-haritasi.html#sihhiye" class="text-red-600 underline">Konum Linki</a><br>MYO notu: <span class="italic">Sağlık Hizmetleri MYO Sıhhiye Kampüsünde yer almaktadır.</span></div>
+                </div>
+                <div class="kampus-baslik">Meslek Yüksekokulları ve Bölümleri</div>
+                <div class="myo-card" data-search="Sosyal Bilimler Meslek Yüksekokulu Sahne Işık ve Ses Teknolojileri Muhasebe ve Vergi Uygulamaları Büro Yönetimi ve Yönetici Asistanlığı Turizm ve Otel İşletmeciliği">
+                    <div class="myo-title">Hacettepe Üniversitesi Sosyal Bilimler Meslek Yüksekokulu</div>
+                    <div class="myo-bolum">Sahne Işık ve Ses Teknolojileri</div>
+                    <div class="myo-bolum">Muhasebe ve Vergi Uygulamaları</div>
+                    <div class="myo-bolum">Büro Yönetimi ve Yönetici Asistanlığı</div>
+                    <div class="myo-bolum">Turizm ve Otel İşletmeciliği</div>
+                    <div class="text-gray-400 text-xs mt-2">Konum: <a href="https://www.google.com/maps/place/Hacettepe+%C3%9Cniversitesi+Sosyal+Bilimler+Meslek+Y%C3%BCksekokulu/@39.9339639,32.8554719,19z/data=!4m6!3m5!1s0x14d34e58cf5acfdb:0x9aba0d19311f8ca6!8m2!3d39.9340333!4d32.8560796!16s%2Fg%2F1tjzmyjz?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D" class="text-red-600 underline">Konum Linki</a><br>MYO notu: <span class="italic">Sosyal Bilimler MYO Altındağ'da yer almaktadır. Kampüs içinde değildir.</span></div>
+                </div>
+                <div class="myo-card" data-search="Başkent OSB Teknik Bilimler Meslek Yüksekokulu İnşaat Teknolojisi Harita ve Kadastro Kaynak Teknolojisi İklimlendirme ve Soğutma Teknolojisi">
+                    <div class="myo-title">Hacettepe Üniversitesi Başkent OSB Teknik Bilimler Meslek Yüksekokulu</div>
+                    <div class="myo-bolum">İnşaat Teknolojisi</div>
+                    <div class="myo-bolum">Harita ve Kadastro</div>
+                    <div class="myo-bolum">Kaynak Teknolojisi</div>
+                    <div class="myo-bolum">İklimlendirme ve Soğutma Teknolojisi</div>
+                    <div class="text-gray-400 text-xs mt-2">Konum: <a href="https://www.google.com/maps/place/Hacettepe+%C3%9Cniversitesi+Ba%C5%9Fkent+OSB+Teknik+Bilimler+MYO/@39.8204678,32.3529114,13z/data=!4m6!3m5!1s0x14d31ddd42ad76ad:0x52c3c0797eabf361!8m2!3d39.8047808!4d32.3794776!16s%2Fg%2F11g6qhd1cw?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D" class="text-red-600 underline">Konum Linki</a><br>MYO notu: <span class="italic">Başkent OSB Teknik MYO Temelli'de yer almaktadır. Kampüs içinde değildir.</span></div>
+                </div>
+                <div class="myo-card" data-search="Hacettepe Ankara Sanayi Odası 1. OSB Meslek Yüksekokulu Elektrik Makine Alternatif Enerji Kaynakları Teknolojisi Endüstri Ürünleri Tasarımı">
+                    <div class="myo-title">Hacettepe Ankara Sanayi Odası 1. OSB Meslek Yüksekokulu</div>
+                    <div class="myo-bolum">Elektrik</div>
+                    <div class="myo-bolum">Makine</div>
+                    <div class="myo-bolum">Alternatif Enerji Kaynakları Teknolojisi</div>
+                    <div class="myo-bolum">Endüstri Ürünleri Tasarımı</div>
+                    <div class="text-gray-400 text-xs mt-2">Konum: <a href="https://www.google.com/maps/place/Hacettepe+Ankara+Sanayi+Odas%C4%B1+1.+OSB+Meslek+Y%C3%BCksekokulu/@39.981623,32.5559835,16z/data=!4m6!3m5!1s0x14d3300ba660e405:0xbaddded0046440d4!8m2!3d39.9818752!4d32.5567685!16s%2Fg%2F11cs3qq1q1?entry=ttu&g_ep=EgoyMDI1MDcyMC4wIKXMDSoASAFQAw%3D%3D" class="text-red-600 underline">Konum Linki</a><br>MYO notu: <span class="italic">Hacettepe Ankara Sanayi Odası MYO Sincan'da yer almaktadır. Kampüs içinde değildir.</span></div>
+                </div>
+            </div>
+            <p class="text-center text-red-700 text-sm mt-8">Kaynak: Hacettepe.edu.tr / YÖK Atlas - Son Güncelleme 23.07.2025 / Verilerin Doğruluğu Güncel Olmayabilir Güncel Veriler İçin Mutlaka Resmi Kaynaklara Başvurunuz </p>
+        </main>
+        <script>
+        function turkceNormalize(str) {
+            return str
+                .toLocaleLowerCase('tr-TR')
+                .normalize('NFD')
+                .replace(/[ -]/g, function(c) {
+                    var map = { 'ı': 'i', 'İ': 'i', 'ş': 's', 'Ş': 's', 'ğ': 'g', 'Ğ': 'g', 'ü': 'u', 'Ü': 'u', 'ö': 'o', 'Ö': 'o', 'ç': 'c', 'Ç': 'c' };
+                    return map[c] || c;
+                })
+                .replace(/ı/g, 'i')
+                .replace(/İ/g, 'i')
+                .replace(/ş/g, 's')
+                .replace(/ğ/g, 'g')
+                .replace(/ü/g, 'u')
+                .replace(/ö/g, 'o')
+                .replace(/ç/g, 'c');
+        }
+        function filtrele() {
+            var input = document.getElementById('aramaKutusu');
+            var filter = turkceNormalize(input.value);
+            var kartlar = document.querySelectorAll('.fakulte-card, .myo-card');
+            kartlar.forEach(function(kart) {
+                var text = turkceNormalize(kart.getAttribute('data-search'));
+                var title = turkceNormalize(kart.querySelector('.fakulte-title, .myo-title').textContent);
+                var bolumler = kart.querySelectorAll('.bolum-badge, .myo-bolum');
+                var kartGoster = false;
+                if (title.includes(filter) || filter === "") {
+                    kart.style.display = '';
+                    bolumler.forEach(function(b) { b.style.display = ''; });
+                    return;
+                }
+                var bolumGosterildi = false;
+                bolumler.forEach(function(b) {
+                    if (turkceNormalize(b.textContent).includes(filter)) {
+                        b.style.display = '';
+                        kartGoster = true;
+                        bolumGosterildi = true;
+                    } else {
+                        b.style.display = 'none';
+                    }
+                });
+                kart.style.display = kartGoster ? '' : 'none';
+            });
+        }
+        </script>
+    </div>
+</body>
+</html> 

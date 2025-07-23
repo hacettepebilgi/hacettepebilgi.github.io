@@ -138,6 +138,7 @@
             </nav>
 
         <main class="container mx-auto px-4 py-8">
+            <a id="beytepe"></a>
             <h1 class="text-3xl font-bold text-center mb-8">Kampüs Haritası</h1>
             
             <div class="flex justify-center space-x-4 mb-6">
@@ -150,7 +151,7 @@
                     {{ campus.name }}
                 </button>
             </div>
-
+            <a id="sihhiye"></a>
             <div class="flex gap-6">
                 <!-- Önemli Noktalar (Sol Taraf) -->
                 <div class="w-1/4" v-if="selectedCampus">
@@ -292,6 +293,22 @@
             },
             mounted() {
                 this.initMap();
+                // Fragment ile gelindiyse ilgili kampüsü seç
+                const hash = window.location.hash.replace('#', '');
+                if (hash === 'beytepe' || hash === 'sihhiye') {
+                    const campus = this.campuses.find(c => c.id === hash);
+                    if (campus) {
+                        setTimeout(() => {
+                            this.selectCampus(campus);
+                            // Scroll'u anchor'a hizala (navbar yüksekliği kadar yukarıda dursun)
+                            const anchor = document.getElementById(hash);
+                            if (anchor) {
+                                const y = anchor.getBoundingClientRect().top + window.pageYOffset - 80;
+                                window.scrollTo({top: y, behavior: 'smooth'});
+                            }
+                        }, 400);
+                    }
+                }
             }
         }).mount('#app');
     </script>
